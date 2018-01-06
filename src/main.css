@@ -1,0 +1,225 @@
+.codeflow-button {
+  display: inline-block;
+  font-weight: 400;
+  text-align: center;
+  white-space: nowrap;
+  vertical-align: middle;
+  user-select: none;
+  border: 1px solid transparent;
+  padding: .375rem .75rem;
+  border-radius: .25rem;
+  -webkit-appearance: button;
+  cursor: pointer;
+  color: #fff; }
+  .codeflow-button:disabled {
+    opacity: .65;
+    cursor: not-allowed; }
+  .codeflow-button:focus {
+    outline: 0; }
+  .codeflow-button--rounded, .codeflow-button--loading {
+    height: 3rem !important; }
+  .codeflow-button--rounded {
+    border-radius: 20px;
+    height: 2.5rem;
+    line-height: 1.3rem;
+    padding-left: 1rem;
+    padding-right: 1rem; }
+  .codeflow-button--circle {
+    border-radius: 50%; }
+  .codeflow-button--primary {
+    background-color: #2a9699;
+    border-color: #2a9699; }
+    .codeflow-button--primary:active:not(:disabled) {
+      box-shadow: 0 0 0 0.2rem rgba(42, 150, 153, 0.5); }
+    .codeflow-button--primary--outline {
+      border-color: #2a9699;
+      color: #2a9699; }
+    .codeflow-button--primary--flat {
+      background-color: transparent;
+      color: #2a9699;
+      border: none; }
+    .codeflow-button--primary--hover:hover {
+      color: #fff;
+      background-color: #2a9699;
+      border-color: #2a9699; }
+  .codeflow-button--secondary {
+    background-color: #868e96;
+    border-color: #868e96; }
+    .codeflow-button--secondary:active:not(:disabled) {
+      box-shadow: 0 0 0 0.2rem rgba(134, 142, 150, 0.5); }
+    .codeflow-button--secondary--outline {
+      border-color: #868e96;
+      color: #868e96; }
+    .codeflow-button--secondary--flat {
+      background-color: transparent;
+      color: #868e96;
+      border: none; }
+    .codeflow-button--secondary--hover:hover {
+      color: #fff;
+      background-color: #868e96;
+      border-color: #868e96; }
+  .codeflow-button--danger {
+    background-color: #dc3545;
+    border-color: #dc3545; }
+    .codeflow-button--danger:active:not(:disabled) {
+      box-shadow: 0 0 0 0.2rem rgba(220, 53, 69, 0.5); }
+    .codeflow-button--danger--outline {
+      border-color: #dc3545;
+      color: #dc3545; }
+    .codeflow-button--danger--flat {
+      background-color: transparent;
+      color: #dc3545;
+      border: none; }
+    .codeflow-button--danger--hover:hover {
+      color: #fff;
+      background-color: #dc3545;
+      border-color: #dc3545; }
+  .codeflow-button__content-box {
+    display: flex;
+    align-items: center;
+    justify-content: center; }
+  .codeflow-button__text {
+    margin-left: 10px; }
+    .codeflow-button__text--bold {
+      font-weight: 700; }
+
+.codeflow-button__outline-base, .codeflow-button--primary--outline, .codeflow-button--secondary--outline, .codeflow-button--danger--outline {
+  background-color: transparent;
+  font-weight: 700;
+  border-style: solid;
+  border-width: 2px; }
+
+.codeflow-checkbox {
+  content: '';
+  width: 1.5rem;
+  height: 1.5rem;
+  border: 1.5px solid #8a8a8a;
+  border-radius: 1px;
+  margin-top: 2px;
+  transition: .2s;
+  display: inline-block; }
+  .codeflow-checkbox--checked {
+    top: -4px;
+    left: -3px;
+    width: 12px;
+    height: 22px;
+    border-style: solid;
+    border-width: 2px;
+    transform: rotate(40deg);
+    transform-origin: 100% 100%; }
+  .codeflow-checkbox--primary.codeflow-checkbox--checked {
+    border-color: transparent #2a9699 #2a9699 transparent; }
+  .codeflow-checkbox--secondary.codeflow-checkbox--checked {
+    border-color: transparent #868e96 #868e96 transparent; }
+  .codeflow-checkbox--danger.codeflow-checkbox--checked {
+    border-color: transparent #dc3545 #dc3545 transparent; }
+  .codeflow-checkbox__label {
+    margin-left: 10px; }
+
+.codeflow-form-item {
+  padding: 7px 0; }
+  .codeflow-form-item__label {
+    max-width: 100%;
+    text-transform: capitalize; }
+    .codeflow-form-item__label--required::after {
+      content: "*";
+      color: #dc3545; }
+  .codeflow-form-item__holder {
+    margin-top: 6px; }
+    .codeflow-form-item__holder--inline {
+      display: inline-block; }
+  .codeflow-form-item__validation {
+    text-align: center;
+    color: #E64040;
+    font-size: 11px;
+    margin: 2px 0 0 0; }
+
+.hasError {
+  border-color: #a94442;
+  box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075); }
+
+.codeflow-loader {
+  margin: 0;
+  padding: 0;
+  display: inline-block;
+  overflow: hidden;
+  font-size: 1rem;
+  position: relative;
+  text-indent: -9999em;
+  border-width: 1.1em;
+  border-style: solid;
+  -webkit-transform: translateZ(0);
+  -ms-transform: translateZ(0);
+  transform: translateZ(0);
+  -webkit-animation: codeflow-loader_load8 1.1s infinite linear;
+  animation: codeflow-loader_load8 1.1s infinite linear; }
+  .codeflow-loader--primary {
+    border-color: #d0f1f2;
+    border-left-color: #2a9699; }
+  .codeflow-loader--secondary {
+    border-color: #f3f4f5;
+    border-left-color: #868e96; }
+  .codeflow-loader--danger {
+    border-color: #fae3e5;
+    border-left-color: #dc3545; }
+  .codeflow-loader, .codeflow-loader:after {
+    border-radius: 50%;
+    width: 10em;
+    height: 10em; }
+
+@-webkit-keyframes codeflow-loader_load8 {
+  0% {
+    -webkit-transform: rotate(0deg);
+    transform: rotate(0deg); }
+  100% {
+    -webkit-transform: rotate(360deg);
+    transform: rotate(360deg); } }
+
+@keyframes codeflow-loader_load8 {
+  0% {
+    -webkit-transform: rotate(0deg);
+    transform: rotate(0deg); }
+  100% {
+    -webkit-transform: rotate(360deg);
+    transform: rotate(360deg); } }
+
+.codeflow-widget {
+  background-color: #fff;
+  box-shadow: 0 2px 5px 0 rgba(0, 0, 0, 0.16), 0 2px 10px 0 rgba(0, 0, 0, 0.12);
+  border-radius: 5px;
+  padding: 1rem;
+  min-height: 7rem;
+  margin-top: 2rem;
+  width: 25rem; }
+  .codeflow-widget__title {
+    display: flex;
+    flex-direction: row; }
+    .codeflow-widget__title-icon {
+      font-size: 2rem;
+      color: white;
+      border-radius: 4px;
+      margin: -30px 10px 0 0;
+      padding: 8px 16px;
+      width: 8rem;
+      height: 8rem;
+      position: relative;
+      background-color: #4285f4;
+      box-shadow: 0 8px 17px 0 rgba(0, 0, 0, 0.12), 0 6px 20px 0 rgba(0, 0, 0, 0.12);
+      display: flex;
+      align-items: center;
+      justify-content: center; }
+      .codeflow-widget__title-icon--primary {
+        background-color: #2a9699; }
+      .codeflow-widget__title-icon--secondary {
+        background-color: #868e96; }
+      .codeflow-widget__title-icon--danger {
+        background-color: #dc3545; }
+    .codeflow-widget__title-text {
+      display: flex;
+      flex: 1;
+      flex-direction: column;
+      justify-content: space-between; }
+      .codeflow-widget__title-text--label {
+        text-align: right; }
+      .codeflow-widget__title-text--value {
+        text-align: right; }

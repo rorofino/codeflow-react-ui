@@ -1,0 +1,15 @@
+$color-primary: #2a9699;
+$color-secondary: #868e96;
+$color-danger: #dc3545;
+
+$color-primary-light: lighten($color-primary, 50%);
+$color-secondary-light: lighten($color-secondary, 40%);
+$color-danger-light: lighten($color-danger, 40%);
+
+$color-white: #fff;
+
+$breakpoints: (
+  'medium': (min-width: 800px),
+  'large': (min-width: 1000px),
+  'huge': (min-width: 1200px),
+);

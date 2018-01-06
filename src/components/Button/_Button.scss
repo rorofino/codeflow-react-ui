@@ -1,0 +1,142 @@
+.codeflow-button {
+    display: inline-block;
+    font-weight: 400;
+    text-align: center;
+    white-space: nowrap;
+    vertical-align: middle;
+    user-select: none;
+    border: 1px solid transparent;
+    padding: .375rem .75rem;
+    border-radius: .25rem;
+    -webkit-appearance: button;
+    cursor: pointer;
+    color: $color-white;
+
+    &:disabled {
+        opacity: .65;
+        cursor: not-allowed;
+    }
+
+    &:focus {
+        outline: 0;
+    }
+
+    &--rounded, &--loading {
+        height: 3rem !important;
+    }
+
+    &--rounded {
+        border-radius: 20px;
+        height: 2.5rem;
+        line-height: 1.3rem;
+        padding-left: 1rem;
+        padding-right: 1rem;
+    }
+
+    &--circle {
+        border-radius: 50%;
+    }
+
+    &--primary {
+        background-color: $color-primary;
+        border-color: $color-primary;
+
+        &:active:not(:disabled) {
+            box-shadow: buildButtonShadowBox($color-primary);
+        }
+
+        &--outline {
+            @extend .codeflow-button__outline-base;
+            border-color: $color-primary;
+            color: $color-primary;
+        }
+
+        &--flat {
+            background-color: transparent;
+            color: $color-primary;
+            border: none;
+        }
+
+        &--hover:hover {
+            color: $color-white;
+            background-color: $color-primary;
+            border-color: $color-primary;
+        }
+    }
+
+    &--secondary {
+        background-color: $color-secondary;
+        border-color: $color-secondary;
+
+        &:active:not(:disabled) {
+            box-shadow: buildButtonShadowBox($color-secondary);
+        }
+
+        &--outline {
+            @extend .codeflow-button__outline-base;
+            border-color: $color-secondary;
+            color: $color-secondary;
+        }
+
+        &--flat {
+            background-color: transparent;
+            color: $color-secondary;
+            border: none;
+        }
+
+        &--hover:hover {
+            color: $color-white;
+            background-color: $color-secondary;
+            border-color: $color-secondary;
+        }
+    }
+
+    &--danger {
+        background-color: $color-danger;
+        border-color: $color-danger;
+
+        &:active:not(:disabled) {
+            box-shadow: buildButtonShadowBox($color-danger);
+        }
+
+        &--outline {
+            @extend .codeflow-button__outline-base;
+            border-color: $color-danger;
+            color: $color-danger;
+        }
+
+        &--flat {
+            background-color: transparent;
+            color: $color-danger;
+            border: none;
+        }
+
+        &--hover:hover {
+            color: $color-white;
+            background-color: $color-danger;
+            border-color: $color-danger;
+        }
+    }
+
+    
+    &__content-box {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+    
+    &__text {
+        margin-left: 10px;
+
+        &--bold {
+            font-weight: 700;
+        }
+    }
+}
+
+.codeflow-button__outline-base {
+    background-color: transparent;
+    font-weight: 700;
+    border-style: solid;
+    border-width: 2px;
+}

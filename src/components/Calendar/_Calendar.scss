@@ -1,0 +1,100 @@
+$row-color: rgb(224,224,224);
+$row-height: 7rem;
+
+.calendar {
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+
+    .days {
+        min-height: $row-height;
+        display: flex;
+        width: 100%;
+        background: #fff;
+        border-bottom: 1px solid $row-color;
+
+        .daybox {
+            display: flex;
+            flex: 1;
+            justify-content: center;
+            align-items: center;
+            flex-direction: column;
+            padding-bottom: 1rem;
+            &:not(:first-child) {
+                border-left: 1px solid $row-color;
+            }
+
+            .diaMes {
+                font-size: 3rem;
+            }
+            .diaSemana {
+                font-size: 1.5rem;
+            }
+        }
+    }
+    .times {
+        background-color: #fff;
+        overflow: auto;
+        flex: 1;
+        display: flex;
+        flex-direction: column;
+    }
+    .time {
+        min-height: $row-height;
+        display: flex;
+        flex-direction: row;
+        flex: 1;
+
+        &:first-child .timeLabel {
+            visibility: hidden;
+        }
+
+        .busy {
+            background-color: #ff5252;
+        }
+
+        .free {
+            background-color: white;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-size: 1.2rem;
+        }
+
+        .outofwork {
+            background-color: #ccc;
+        }
+        
+        .yours {
+            background-color: #007bff;
+        }
+    }
+    .timeLabel {
+        flex: 1;
+        display: flex;
+        justify-content: center;
+        align-items: flex-start;
+        border-bottom: none;
+        position: relative;
+        top: -1rem;
+    }
+    .eventHolder {
+        border-left: 1px solid $row-color;
+        border-bottom: 1px solid $row-color;
+        min-height: $row-height;
+        flex: 1;
+    }
+
+    .aviso-vazio {
+        margin: 2rem;
+        width: 100%;
+        text-align: center;
+    }
+}
+
+
+@media (min-width:801px) {
+    .days {
+        padding-right: 1.5rem;
+    }    
+}

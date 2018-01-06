@@ -1,0 +1,38 @@
+$checkbox-border-color: #8a8a8a;
+
+.codeflow-checkbox {
+    
+    content: '';
+    width: 1.5rem;
+    height: 1.5rem;
+    border: 1.5px solid $checkbox-border-color;
+    border-radius: 1px;
+    margin-top: 2px;
+    transition: .2s;
+    display: inline-block;
+
+    &--checked {
+        top: -4px;
+        left: -3px;
+        width: 12px;
+        height: 22px;
+        border-style: solid;
+        border-width: 2px;
+        transform: rotate(40deg);
+        transform-origin: 100% 100%;
+    }
+
+    &--primary.codeflow-checkbox--checked {
+        border-color: transparent $color-primary $color-primary transparent;
+    }
+    &--secondary.codeflow-checkbox--checked {
+        border-color: transparent $color-secondary $color-secondary transparent;
+    }
+    &--danger.codeflow-checkbox--checked {
+        border-color: transparent $color-danger $color-danger transparent;
+    }
+
+    &__label {
+        margin-left: 10px;
+    }
+}
