@@ -3,10 +3,19 @@ $color-secondary: #868e96;
 $color-danger: #dc3545;
 
 $color-primary-light: lighten($color-primary, 50%);
+$color-primary-medium: lighten($color-primary, 10%);
 $color-secondary-light: lighten($color-secondary, 40%);
 $color-danger-light: lighten($color-danger, 40%);
 
+$color-border-black: #000;
 $color-white: #fff;
+
+$color-background-primary: #fff; 
+
+$color-text-title: rgba(0,0,0,0.87);
+$color-text-default: #000;
+$color-text-primary: rgba(0,0,0,0.87);
+$color-text-secondary: rgba(0,0,0,0.54);
 
 $breakpoints: (
   'medium': (min-width: 800px),

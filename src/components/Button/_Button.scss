@@ -123,10 +123,17 @@
         display: flex;
         align-items: center;
         justify-content: center;
+        flex: 1;
     }
     
     &__text {
-        margin-left: 10px;
+
+        display: inline-flex;
+        align-items: center;
+
+        &--loading {
+            margin-left: 10px;
+        }
 
         &--bold {
             font-weight: 700;

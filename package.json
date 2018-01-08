@@ -13,7 +13,7 @@
   "scripts": {
     "build-css": "node-sass-chokidar --include-path ./src --include-path ./node_modules src/ -o src/",
     "watch-css": "npm run build-css && node-sass-chokidar --include-path ./src --include-path ./node_modules src/ -o src/ --watch --recursive",
-    "build-js": "nwb build-react-component",
+    "build-js": "nwb build-react-component --copy-files",
     "build": "npm-run-all build-css build-js",
     "clean": "nwb clean-module && nwb clean-demo",
     "start-js": "nwb serve-react-demo",
@@ -24,7 +24,8 @@
   },
   "dependencies": {
     "classcat": "^1.1.1",
-    "prop-types": "^15.6.0"
+    "prop-types": "^15.6.0",
+    "react-modal": "^3.1.10"
   },
   "peerDependencies": {
     "react": "16.x"

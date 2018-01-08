@@ -59,16 +59,16 @@ class Calendar extends Component {
       let currentDay = new Date(this.state.lastShowingDate);
       for (let i = 0; i < 7; i++) {
         days.push(
-          <div key={i} className="daybox">
-            <div className="diaMes">{currentDay.getDate()}</div>
-            <div className="diaSemana">
+          <div key={i} className="codeflow-calendar__day-box">
+            <div className="codeflow-calendar__day-month">{currentDay.getDate()}</div>
+            <div className="codeflow-calendar__day-week">
               {getDiaSemanaLabel(currentDay.getDay())}
             </div>
           </div>
         );
         currentDay.setDate(currentDay.getDate() - 1);
       }
-      days.push(<div key={7} className="daybox empty" />);
+      days.push(<div key={7} className="codeflow-calendar__day-box" />);
     }
     return days.reverse();
   }
@@ -82,7 +82,7 @@ class Calendar extends Component {
         time++
       ) {
         const line = [
-          <div key={time} className="timeLabel">
+          <div key={time} className="codeflow-calendar__time-label">
             {this.formatTime(time)}
           </div>
         ];
@@ -93,12 +93,14 @@ class Calendar extends Component {
               ? "Vago"
               : "";
           let className = cc([
-            "eventHolder",
+            "codeflow-calendar__event",
             {
-              outofwork: Object.keys(evento).length === 0,
-              busy: evento.busy,
-              yours: evento.yours,
-              free: !evento.busy && !evento.yours
+              "codeflow-calendar__event": {
+                "--outofwork": Object.keys(evento).length === 0,
+                "--busy": evento.busy,
+                "--yours": evento.yours,
+                "--free": !evento.busy && !evento.yours
+              }
             }
           ]);
           line.push(
@@ -112,7 +114,7 @@ class Calendar extends Component {
           );
         }
         lines.push(
-          <div key={time} className="time">
+          <div key={time} className="codeflow-calendar__time-box">
             {line}
           </div>
         );
@@ -124,13 +126,13 @@ class Calendar extends Component {
 
   render() {
     return (
-      <div className="calendar">
-        <div className="days">{this.buildHeader()}</div>
+      <div className="codeflow-calendar">
+        <div className="codeflow-calendar__days">{this.buildHeader()}</div>
         {this.state.showingEvents &&
         Object.keys(this.state.showingEvents).length > 0 ? (
-          <div className="times">{this.buildTimes()}</div>
+          <div className="codeflow-calendar__times">{this.buildTimes()}</div>
         ) : (
-          <div className="aviso-vazio">Agenda ainda não está disponível para o periodo selecionado</div>
+          <div className="codeflow-calendar__empty">Agenda ainda não está disponível para o periodo selecionado</div>
         )}
       </div>
     );

@@ -35,9 +35,9 @@ const Button = props => {
 			type={props.type}
 			style={props.style}
 		>
-			<div className="codeflow-button__content-box">
+			<div className={cc(["codeflow-button__content-box", props.className])}>
 				{props.loading ? <Spinner size={20} primary={props.primary} secondary={props.secondary} danger={props.danger} /> : null}
-				<span className={cc([{"codeflow-button__text": props.loading, "codeflow-button__text--bold": props.bold}])}>{props.children}</span>
+				<div className={cc(["codeflow-button__text", {"codeflow-button__text--loading": props.loading, "codeflow-button__text--bold": props.bold}])}>{props.children}</div>
 			</div>
 		</button>
 	);

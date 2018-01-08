@@ -2,7 +2,7 @@ import React from "react";
 import cc from "classcat";
 import PropTypes from "prop-types";
 
-const Page = props => <div className={cc(["page-component", props.className])} >{props.children}</div>;
+const Page = props => <div className={cc(["codeflow-page", props.className])} >{props.children}</div>;
 
 Page.propTypes = {
 	className: PropTypes.string,

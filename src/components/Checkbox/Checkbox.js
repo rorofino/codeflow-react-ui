@@ -41,7 +41,7 @@ const Checkbox = props => [
 Checkbox.propTypes = {
 	label: PropTypes.string,
 	labelPosition: PropTypes.string,
-	value: PropTypes.oneOfType(PropTypes.bool, PropTypes.string),
+	value: PropTypes.oneOfType([PropTypes.bool, PropTypes.string]),
 	onClick: PropTypes.func
 };
 

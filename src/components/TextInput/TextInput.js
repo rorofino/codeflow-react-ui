@@ -2,7 +2,7 @@ import React from "react";
 import PropTypes from "prop-types";
 import cc from "classcat";
 
-const TextInput = props => <input {...props} className={cc(["input", props.className])} />;
+const TextInput = props => <input {...props} className={cc(["codeflow-material-input", props.className])} />;
 
 TextInput.defaultProps = {
 	className: "",

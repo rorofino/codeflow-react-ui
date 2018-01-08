@@ -1,9 +1,12 @@
-import React, {Component} from 'react'
-
-export default class extends Component {
-  render() {
-    return <div>
-      <h2>Welcome to React components</h2>
-    </div>
-  }
-}
+export Button from './components/Button/Button';
+export Calendar from './components/Calendar/Calendar';
+export Checkbox from './components/Checkbox/Checkbox';
+export FormItem from './components/FormItem/FormItem';
+export Header from './components/Header/Header';
+export ListMasterDetail from './components/ListMasterDetail/ListMasterDetail';
+export LoadingModal from './components/LoadingModal/LoadingModal';
+export Modal from './components/Modal/Modal';
+export Page from './components/Page/Page';
+export Spinner from './components/Spinner/Spinner';
+export TextInput from './components/TextInput/TextInput';
+export Widget from './components/Widget/Widget';
