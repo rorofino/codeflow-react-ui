@@ -261,9 +261,9 @@
     font-size: 14px;
     text-transform: uppercase; }
     .codeflow-list-master-detail__column-add i {
+      margin-left: 1rem;
       text-align: center;
-      min-width: 2.4rem;
-      min-height: 2.4rem; }
+      font-size: 2rem; }
     .codeflow-list-master-detail__column-add p {
       margin-left: 0.8rem; }
     .codeflow-list-master-detail__column-add:hover {
@@ -287,7 +287,10 @@
     flex: 1; }
   .codeflow-list-master-detail__column-icon {
     width: 30px;
-    text-align: center; }
+    text-align: center;
+    visibility: hidden; }
+    .codeflow-list-master-detail__column-icon--visible {
+      visibility: visible; }
 
 .codeflow-loading-modal {
   display: flex;

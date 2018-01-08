@@ -173,7 +173,8 @@ class Demo extends Component {
         </Page>
       </div>
       <div className="demoRow">
-          <ListMasterDetail title="Horários" data={this.state.data} columns={[{labelProperty: 'sala', valueProperty: 'dias', title: 'Salas'}, {labelProperty: 'dia', valueProperty: 'horarios', title: 'Dias da Semana'}, {labelProperty: 'hora', valueProperty: 'hora', title: 'Horários', manageable: true}]}  />
+          <ListMasterDetail title="Horários" value={this.state.data} 
+          columns={[{labelProperty: 'sala', valueProperty: 'dias', title: 'Salas', manageable: true}, {labelProperty: 'dia', valueProperty: 'horarios', title: 'Dias da Semana', manageable: true}, {labelProperty: 'hora', valueProperty: 'hora', title: 'Horários', manageable: true, final: true}]}  />
       </div>
       <Modal isOpen={this.state.modalOpen} primary={this.state.primary} secondary={this.state.secondary} danger={this.state.danger}>
         <h1>Modal de teste</h1>
