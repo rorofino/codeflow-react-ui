@@ -10,12 +10,28 @@ $color-danger-light: lighten($color-danger, 40%);
 $color-border-black: #000;
 $color-white: #fff;
 
+$color-hover: rgba(0,0,0,0.08);
+
 $color-background-primary: #fff; 
+
+$size-title-font: 2.2rem;
 
 $color-text-title: rgba(0,0,0,0.87);
 $color-text-default: #000;
 $color-text-primary: rgba(0,0,0,0.87);
 $color-text-secondary: rgba(0,0,0,0.54);
+
+$padding-xs: 0.5rem;
+$padding-sm: 0.8rem;
+$padding-md: 1.5rem;
+$padding-lg: 3rem;
+$padding-xl: 5rem;
+
+$margin-xs: 0.5rem;
+$margin-sm: 0.8rem;
+$margin-md: 1.5rem;
+$margin-lg: 3rem;
+$margin-xl: 5rem;
 
 $breakpoints: (
   'medium': (min-width: 800px),

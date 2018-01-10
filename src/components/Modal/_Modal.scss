@@ -1,3 +1,5 @@
+$normal-padding: 1.5rem;
+
 .codeflow-overlay {
     background-color: rgba(000, 000, 000, 0.65);
     position: fixed;
@@ -8,8 +10,6 @@
 }
 
 .codeflow-modal {
-
-    padding: 15px 15px;
     display: inline-flex;
     flex-direction: column;
     justify-content: center;
@@ -23,29 +23,47 @@
     border-radius: 2px;
     border-color: transparent;
 
+    &:focus {
+        outline: none;
+    }
+
     &--extra-padding {
-        padding-right: 50px;        
-        padding-left: 50px;
+        padding-right: $normal-padding;
+        padding-left: $normal-padding;
     }
 
     &__title {
 
         position: relative;
-        margin-top: -4rem;
-        margin-bottom: 2rem;
+        margin-top: -2rem;
+        margin-bottom: 3rem;
+        padding: $normal-padding;
         width: 100%;
         height: 6rem;
         display: flex;
         justify-content: center;
         align-items: center;
-        font-size: 30px;
+        font-size: $size-title-font;
+        font-weight: 700;
         color: #fff;
+
+        box-shadow: 0 5px 11px 0 rgba(0,0,0,.18), 0 4px 15px 0 rgba(0,0,0,.15);
 
         &--simple {
             margin-top: 0;
             margin-bottom: 1rem;
+        }
+        
+        &--neutral {
+            height: initial;
+            margin: 0;
             background-color: transparent !important;
             color: $color-text-title;
+            box-shadow: none;
+
+            .codeflow-modal__title-close-button {
+                color: $color-text-title;
+            }
         }
 
         &--primary {
@@ -65,8 +83,26 @@
         }
     }
 
+    &__title-close-button {
+        color: #fff;
+        font-size: 1.5rem;
+    }
+
+    &__title-icon {
+        margin-right: 0.8rem;
+    }
+
+    &__title-box {
+        display: flex;
+        flex-direction: row;
+        flex: 1;
+        align-items: center;
+    }
+
     &__body {
-        margin-top: 10px;
+        padding: $normal-padding;
+        padding-top: 0;
+        color: $color-text-default;
         overflow: auto;
         height: 100%;
         width: 100%;

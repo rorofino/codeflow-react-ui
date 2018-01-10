@@ -1,0 +1,34 @@
+.codeflow-alert {
+    display: flex;
+    flex: 1;
+    flex-direction: row;
+    min-width: 40rem;
+
+    &__title {
+        color: $color-text-title;
+        font-size: $size-title-font;
+        font-weight: 700;
+    }
+
+    &__body {
+        color: $color-text-default;
+        font-weight: 500;
+    }
+
+    &__footer {
+        display: flex;
+        flex-direction: row;
+        flex: 1;
+        justify-content: flex-end;
+        align-items: center;
+        margin-top: 3rem;
+    }
+
+    &__button {
+        padding: 0 !important;
+
+        &--dismiss {
+            margin-right: 1.25rem;
+        }
+    }
+}

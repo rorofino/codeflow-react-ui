@@ -17,6 +17,9 @@ import Page from '../../src/components/Page/Page';
 import TextInput from '../../src/components/TextInput/TextInput';
 import Header from '../../src/components/Header/Header';
 import ListMasterDetail from '../../src/components/ListMasterDetail/ListMasterDetail';
+import Alert from '../../src/components/Alert/Alert';
+import List from '../../src/components/List/List';
+import ListItem from '../../src/components/ListItem/ListItem';
 
 class Demo extends Component {
   state = {
@@ -25,6 +28,8 @@ class Demo extends Component {
     secondary: false,
     danger: false,
     loadingModal: false,
+    simple: false,
+    alertOpen: false,
     data: [
       {
         sala: 'Sala 1',
@@ -149,13 +154,19 @@ class Demo extends Component {
       <div className="demoRow">
         <Page>
           <div className="margin-wrapper">
-            <Button primary onClick={() => this.setState({modalOpen: true, primary: true, secondary: false, danger: false})}>Open Modal</Button>
+            <Button primary onClick={() => this.setState({alertOpen: true})}>Open Alert</Button>
           </div>
           <div className="margin-wrapper">
-            <Button secondary onClick={() => this.setState({modalOpen: true, primary: false, secondary: true, danger: false})}>Open Modal</Button>
+            <Button primary onClick={() => this.setState({modalOpen: true, primary: true, secondary: false, danger: false, simple: false, neutral: false})}>Open Modal</Button>
           </div>
           <div className="margin-wrapper">
-            <Button danger onClick={() => this.setState({modalOpen: true, primary: false, secondary: false, danger: true})}>Open Modal</Button>
+            <Button secondary onClick={() => this.setState({modalOpen: true, primary: false, secondary: true, danger: false, simple: true, neutral: false})}>Open Modal</Button>
+          </div>
+          <div className="margin-wrapper">
+            <Button danger onClick={() => this.setState({modalOpen: true, primary: false, secondary: false, danger: true, simple: false, neutral: false})}>Open Modal</Button>
+          </div>
+          <div className="margin-wrapper">
+            <Button primary onClick={() => this.setState({modalOpen: true, primary: false, secondary: false, danger: false, neutral: true})}>Open Neutral</Button>
           </div>
           <div className="margin-wrapper">
             <Button primary onClick={() => this.setState({loadingModal: true})}>Open Loading Modal</Button>
@@ -173,14 +184,52 @@ class Demo extends Component {
         </Page>
       </div>
       <div className="demoRow">
-          <ListMasterDetail title="Horários" value={this.state.data} 
-          columns={[{labelProperty: 'sala', valueProperty: 'dias', title: 'Salas', manageable: true}, {labelProperty: 'dia', valueProperty: 'horarios', title: 'Dias da Semana', manageable: true}, {labelProperty: 'hora', valueProperty: 'hora', title: 'Horários', manageable: true, final: true}]}  />
+          <ListMasterDetail title="Horários" value={this.state.data}  titleIcon="fa fa-home"
+            columns={[{labelProperty: 'sala', valueProperty: 'dias', title: 'Salas', manageable: true, titleIcon: 'fa fa-edit'}, {labelProperty: 'dia', valueProperty: 'horarios', title: 'Dias da Semana', manageable: true}, {labelProperty: 'hora', valueProperty: 'hora', title: 'Horários', manageable: true, final: true}]}  />
       </div>
-      <Modal isOpen={this.state.modalOpen} primary={this.state.primary} secondary={this.state.secondary} danger={this.state.danger}>
-        <h1>Modal de teste</h1>
+      <div className="demoRow">
+        <div className="margin-wrapper">
+          <List items={['123', '456', '789']} selectedItem='789'>
+          </List>
+        </div>
+        <div className="margin-wrapper">
+          <List primary>
+            <ListItem label="123" icon="fa fa-pencil"/>
+            <ListItem label="456" icon="fa fa-pencil"/>
+            <ListItem label="789" icon="fa fa-pencil"/>
+          </List>
+        </div>
+        <div className="margin-wrapper">
+          <List secondary>
+            <ListItem label="123" icon="fa fa-pencil"/>
+            <ListItem label="456" icon="fa fa-pencil"/>
+            <ListItem label="789" icon="fa fa-pencil"/>
+          </List>
+        </div>
+        <div className="margin-wrapper">
+          <List danger>
+            <ListItem label="123" icon="fa fa-pencil"/>
+            <ListItem label="456" icon="fa fa-pencil"/>
+            <ListItem label="789" icon="fa fa-pencil"/>
+          </List>
+        </div>
+      </div>
+      <Alert 
+        isOpen={this.state.alertOpen} 
+        onDismiss={() => this.setState({alertOpen: false})}
+        onConfirm={() => this.setState({alertOpen: false})}
+        title="My Alert Title" confirmButtonLabel="Agree" dismissButtonLabel="Disagree">
+        My Alert Body
+      </Alert>
+      <Modal icon="fa fa-pencil" 
+        isOpen={this.state.modalOpen} 
+        simple={this.state.simple}
+        neutral={this.state.neutral}
+        primary={this.state.primary} secondary={this.state.secondary} danger={this.state.danger} onClose={() => this.setState({modalOpen: false})}>
+        Modal de teste
       </Modal>
       <LoadinModal isOpen={this.state.loadingModal} primary={this.state.primary} secondary={this.state.secondary} danger={this.state.danger}>
-        <h1>Modal de teste</h1>
+        Modal de teste
       </LoadinModal>
 
     </div>

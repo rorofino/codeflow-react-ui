@@ -9,11 +9,14 @@
 
 // @import 'stylesheets/vendors/*';
 
+@import 'components/Alert/Alert';
 @import 'components/Button/Button';
 @import 'components/Calendar/Calendar';
 @import 'components/Checkbox/Checkbox';
 @import 'components/FormItem/FormItem';
 @import 'components/Header/Header';
+@import 'components/List/List';
+@import 'components/ListItem/ListItem';
 @import 'components/ListMasterDetail/ListMasterDetail';
 @import 'components/LoadingModal/LoadingModal';
 @import 'components/Modal/Modal';
@@ -21,3 +24,5 @@
 @import 'components/Spinner/Spinner';
 @import 'components/TextInput/TextInput';
 @import 'components/Widget/Widget';
+
+@import url("https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css");
