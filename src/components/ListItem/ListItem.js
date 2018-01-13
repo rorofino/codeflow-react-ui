@@ -6,7 +6,7 @@ const ListItem = props => (
         "codeflow-list-item", 
         {
             "codeflow-list-item": {
-                "--selected": props.selected && !props.primary && !props.secondary && !props.danger,
+                "--selected": props.selected,
                 "--primary": props.primary,
                 "--secondary": props.secondary,
                 "--danger": props.danger

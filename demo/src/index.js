@@ -20,6 +20,7 @@ import ListMasterDetail from '../../src/components/ListMasterDetail/ListMasterDe
 import Alert from '../../src/components/Alert/Alert';
 import List from '../../src/components/List/List';
 import ListItem from '../../src/components/ListItem/ListItem';
+import Dropdown from '../../src/components/Dropdown/Dropdown';
 
 class Demo extends Component {
   state = {
@@ -30,6 +31,7 @@ class Demo extends Component {
     loadingModal: false,
     simple: false,
     alertOpen: false,
+    selectedDropDownItem: '123',
     data: [
       {
         sala: 'Sala 1',
@@ -109,6 +111,23 @@ class Demo extends Component {
     return <div>
       <Header></Header>
       <h1>codeflow-react-ui Demo</h1>
+      <div className="margin-wrapper">
+        <Dropdown items={['123', '456', '789']} placeholder="Select an item" />
+      </div>
+      <div className="margin-wrapper">
+        <Dropdown value={this.state.selectedDropDownItem} 
+          onChange={(item) => this.setState({selectedDropDownItem: item.value})}
+          items={[
+            {value: 5, label: '5 linhas'},
+            {value: 10, label: '10 linhas'}
+          ]} placeholder="Select an item" material primary />
+      </div>
+      <div className="margin-wrapper">
+        <Dropdown items={['123', '456', '789']} placeholder="Select an item" flat hover={false} />
+      </div>
+      <div className="margin-wrapper">
+        <Dropdown items={['123', '456', '789']} placeholder="Select an item" flat />
+      </div>
       <Buttons />
       <Spinner primary />
       <Spinner secondary />
@@ -193,8 +212,8 @@ class Demo extends Component {
           </List>
         </div>
         <div className="margin-wrapper">
-          <List primary>
-            <ListItem label="123" icon="fa fa-pencil"/>
+          <List primary selectedItem='123'>
+            <ListItem label="123" value="123" icon="fa fa-pencil"/>
             <ListItem label="456" icon="fa fa-pencil"/>
             <ListItem label="789" icon="fa fa-pencil"/>
           </List>

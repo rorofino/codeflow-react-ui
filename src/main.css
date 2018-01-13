@@ -1,6 +1,161 @@
 @import url("https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css");
-.padding-right-sm {
+.vc {
+  display: flex;
+  align-items: center; }
+
+.hc {
+  display: flex;
+  justify-content: center; }
+
+.padding-xs {
+  padding: 0.5rem; }
+
+.padding-top-xs {
+  padding-top: 0.5rem; }
+
+.padding-right-xs {
   padding-right: 0.5rem; }
+
+.padding-left-xs {
+  padding-left: 0.5rem; }
+
+.padding-bottom-xs {
+  padding-bottom: 0.5rem; }
+
+.margin-xs {
+  margin: 0.5rem; }
+
+.margin-top-xs {
+  margin-top: 0.5rem; }
+
+.margin-right-xs {
+  margin-right: 0.5rem; }
+
+.margin-left-xs {
+  margin-left: 0.5rem; }
+
+.margin-bottom-xs {
+  margin-bottom: 0.5rem; }
+
+.padding-sm {
+  padding: 0.8rem; }
+
+.padding-top-sm {
+  padding-top: 0.8rem; }
+
+.padding-right-sm {
+  padding-right: 0.8rem; }
+
+.padding-left-sm {
+  padding-left: 0.8rem; }
+
+.padding-bottom-sm {
+  padding-bottom: 0.8rem; }
+
+.margin-sm {
+  margin: 0.8rem; }
+
+.margin-top-sm {
+  margin-top: 0.8rem; }
+
+.margin-right-sm {
+  margin-right: 0.8rem; }
+
+.margin-left-sm {
+  margin-left: 0.8rem; }
+
+.margin-bottom-sm {
+  margin-bottom: 0.8rem; }
+
+.padding-md {
+  padding: 1.5rem; }
+
+.padding-top-md {
+  padding-top: 1.5rem; }
+
+.padding-right-md {
+  padding-right: 1.5rem; }
+
+.padding-left-md {
+  padding-left: 1.5rem; }
+
+.padding-bottom-md {
+  padding-bottom: 1.5rem; }
+
+.margin-md {
+  margin: 1.5rem; }
+
+.margin-top-md {
+  margin-top: 1.5rem; }
+
+.margin-right-md {
+  margin-right: 1.5rem; }
+
+.margin-left-md {
+  margin-left: 1.5rem; }
+
+.margin-bottom-md {
+  margin-bottom: 1.5rem; }
+
+.padding-lg {
+  padding: 3rem; }
+
+.padding-top-lg {
+  padding-top: 3rem; }
+
+.padding-right-lg {
+  padding-right: 3rem; }
+
+.padding-left-lg {
+  padding-left: 3rem; }
+
+.padding-bottom-lg {
+  padding-bottom: 3rem; }
+
+.margin-lg {
+  margin: 3rem; }
+
+.margin-top-lg {
+  margin-top: 3rem; }
+
+.margin-right-lg {
+  margin-right: 3rem; }
+
+.margin-left-lg {
+  margin-left: 3rem; }
+
+.margin-bottom-lg {
+  margin-bottom: 3rem; }
+
+.padding-xl {
+  padding: 5rem; }
+
+.padding-top-xl {
+  padding-top: 5rem; }
+
+.padding-right-xl {
+  padding-right: 5rem; }
+
+.padding-left-xl {
+  padding-left: 5rem; }
+
+.padding-bottom-xl {
+  padding-bottom: 5rem; }
+
+.margin-xl {
+  margin: 5rem; }
+
+.margin-top-xl {
+  margin-top: 5rem; }
+
+.margin-right-xl {
+  margin-right: 5rem; }
+
+.margin-left-xl {
+  margin-left: 5rem; }
+
+.margin-bottom-xl {
+  margin-bottom: 5rem; }
 
 .codeflow-alert {
   display: flex;
@@ -34,7 +189,7 @@
   vertical-align: middle;
   user-select: none;
   border: 1px solid transparent;
-  padding: .375rem .75rem;
+  padding: 0.4rem 0.8rem;
   border-radius: .25rem;
   -webkit-appearance: button;
   cursor: pointer;
@@ -45,20 +200,45 @@
     cursor: not-allowed; }
   .codeflow-button:focus {
     outline: 0; }
-  .codeflow-button--rounded, .codeflow-button--loading {
-    height: 3rem !important; }
   .codeflow-button--rounded {
     border-radius: 20px;
     height: 2.5rem;
     line-height: 1.3rem;
-    padding-left: 1rem;
-    padding-right: 1rem; }
+    padding-left: 1.5rem;
+    padding-right: 1.5rem; }
+  .codeflow-button--loading {
+    height: 3rem; }
   .codeflow-button--circle {
     border-radius: 50%; }
+  .codeflow-button--neutral {
+    background-color: #000;
+    border-color: #000; }
+    .codeflow-button--neutral--outline {
+      background-color: transparent;
+      font-weight: 700;
+      border-style: solid;
+      border-width: 2px;
+      border-color: #000;
+      color: #000; }
+    .codeflow-button--neutral--flat {
+      background-color: transparent;
+      color: #000;
+      border: none;
+      box-shadow: none; }
+    .codeflow-button--neutral--hover:active:not(:disabled) {
+      box-shadow: 0 0 0 0.2rem rgba(0, 0, 0, 0.5); }
+    .codeflow-button--neutral--hover:hover {
+      color: #fff;
+      background-color: #000;
+      border-color: #000; }
   .codeflow-button--primary {
     background-color: #2a9699;
     border-color: #2a9699; }
     .codeflow-button--primary--outline {
+      background-color: transparent;
+      font-weight: 700;
+      border-style: solid;
+      border-width: 2px;
       border-color: #2a9699;
       color: #2a9699; }
     .codeflow-button--primary--flat {
@@ -76,6 +256,10 @@
     background-color: #868e96;
     border-color: #868e96; }
     .codeflow-button--secondary--outline {
+      background-color: transparent;
+      font-weight: 700;
+      border-style: solid;
+      border-width: 2px;
       border-color: #868e96;
       color: #868e96; }
     .codeflow-button--secondary--flat {
@@ -93,6 +277,10 @@
     background-color: #dc3545;
     border-color: #dc3545; }
     .codeflow-button--danger--outline {
+      background-color: transparent;
+      font-weight: 700;
+      border-style: solid;
+      border-width: 2px;
       border-color: #dc3545;
       color: #dc3545; }
     .codeflow-button--danger--flat {
@@ -113,17 +301,12 @@
     flex: 1; }
   .codeflow-button__text {
     display: inline-flex;
-    align-items: center; }
+    align-items: center;
+    flex: 1; }
     .codeflow-button__text--loading {
       margin-left: 10px; }
     .codeflow-button__text--bold {
       font-weight: 700; }
-
-.codeflow-button__outline-base, .codeflow-button--primary--outline, .codeflow-button--secondary--outline, .codeflow-button--danger--outline {
-  background-color: transparent;
-  font-weight: 700;
-  border-style: solid;
-  border-width: 2px; }
 
 .codeflow-calendar {
   display: flex;
@@ -222,6 +405,46 @@
   .codeflow-checkbox__label {
     margin-left: 10px; }
 
+.codeflow-dropdown {
+  min-width: 20rem;
+  min-height: 3.5rem;
+  position: relative; }
+  .codeflow-dropdown--material {
+    border: none;
+    border-bottom: solid 1px #bdbdbd; }
+  .codeflow-dropdown__button {
+    position: absolute;
+    display: flex;
+    flex: 1;
+    align-items: center;
+    width: 100%;
+    height: 100%; }
+    .codeflow-dropdown__button--material {
+      padding: 0;
+      justify-content: space-between; }
+    .codeflow-dropdown__button-text {
+      flex: 1;
+      display: flex;
+      justify-content: center;
+      align-items: center; }
+      .codeflow-dropdown__button-text--material {
+        justify-content: space-between;
+        align-items: center;
+        padding-bottom: 1.5rem; }
+      .codeflow-dropdown__button-text::after {
+        content: "";
+        margin-left: .255em;
+        border-top: .3em solid;
+        border-right: .3em solid transparent;
+        border-bottom: 0;
+        border-left: .3em solid transparent; }
+  .codeflow-dropdown__list {
+    position: absolute;
+    width: 100%;
+    top: 100%;
+    left: 0;
+    transform: translateY(0.5rem); }
+
 .codeflow-form-item {
   padding: 7px 0; }
   .codeflow-form-item__label {
@@ -253,11 +476,11 @@
 .codeflow-list {
   background-color: #fff;
   background-clip: padding-box;
-  border: 1px solid rgba(0, 0, 0, 0.15);
   border-radius: .25rem;
   min-height: 15rem;
   min-width: 10rem;
-  padding: 0.8rem 0; }
+  padding: 0.8rem 0;
+  box-shadow: 0 2px 5px 0 rgba(0, 0, 0, 0.16), 0 2px 10px 0 rgba(0, 0, 0, 0.12); }
 
 .codeflow-list-item {
   display: flex;
@@ -275,13 +498,14 @@
     color: rgba(0, 0, 0, 0.87); }
   .codeflow-list-item:hover {
     background-color: rgba(0, 0, 0, 0.08);
-    color: #000; }
+    color: #000;
+    cursor: pointer; }
   .codeflow-list-item--primary {
     margin: 0 0.8rem;
     padding-top: 0.8rem;
     padding-bottom: 0.8rem;
     border-radius: 2px; }
-    .codeflow-list-item--primary:hover {
+    .codeflow-list-item--primary:hover, .codeflow-list-item--primary.codeflow-list-item--selected {
       box-shadow: 0 5px 11px 0 rgba(0, 0, 0, 0.18), 0 4px 15px 0 rgba(0, 0, 0, 0.15);
       background-color: #2a9699;
       border-color: #2a9699;
@@ -291,7 +515,7 @@
     padding-top: 0.8rem;
     padding-bottom: 0.8rem;
     border-radius: 2px; }
-    .codeflow-list-item--secondary:hover {
+    .codeflow-list-item--secondary:hover, .codeflow-list-item--secondary.codeflow-list-item--selected {
       box-shadow: 0 5px 11px 0 rgba(0, 0, 0, 0.18), 0 4px 15px 0 rgba(0, 0, 0, 0.15);
       background-color: #868e96;
       border-color: #868e96;
@@ -301,7 +525,7 @@
     padding-top: 0.8rem;
     padding-bottom: 0.8rem;
     border-radius: 2px; }
-    .codeflow-list-item--danger:hover {
+    .codeflow-list-item--danger:hover, .codeflow-list-item--danger.codeflow-list-item--selected {
       box-shadow: 0 5px 11px 0 rgba(0, 0, 0, 0.18), 0 4px 15px 0 rgba(0, 0, 0, 0.15);
       background-color: #dc3545;
       border-color: #dc3545;
@@ -566,3 +790,6 @@
         text-align: right; }
       .codeflow-widget__title-text--value {
         text-align: right; }
+
+* {
+  box-sizing: border-box; }

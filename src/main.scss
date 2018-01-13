@@ -2,10 +2,10 @@
 
 // @import 'stylesheets/themes/*';
 
+@import 'stylesheets/abstract/variables';
 @import 'stylesheets/abstract/functions';
 @import 'stylesheets/abstract/helpers';
 @import 'stylesheets/abstract/mixins';
-@import 'stylesheets/abstract/variables';
 
 // @import 'stylesheets/vendors/*';
 
@@ -13,6 +13,7 @@
 @import 'components/Button/Button';
 @import 'components/Calendar/Calendar';
 @import 'components/Checkbox/Checkbox';
+@import 'components/Dropdown/Dropdown';
 @import 'components/FormItem/FormItem';
 @import 'components/Header/Header';
 @import 'components/List/List';
@@ -26,3 +27,7 @@
 @import 'components/Widget/Widget';
 
 @import url("https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css");
+
+* {
+    box-sizing: border-box; 
+}

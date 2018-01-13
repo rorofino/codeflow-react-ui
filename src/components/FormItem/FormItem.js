@@ -5,16 +5,9 @@ import cc from "classcat";
 const required = value => (value ? undefined : 'Campo obrigatório');
 
 const FormItem = props => {
-	const validate = [];
+	
 	const { label } = props;
 	const { error, warning, touched } = props.meta || {};
-
-	if (props.required) {
-		validate.push(required);
-	}
-	if (props.extraValidate.length > 0) {
-		validate.push(props.extraValidate);
-	}
 
 	return (
 		<div className={cc(["codeflow-form-item", props.className])}>
@@ -22,7 +15,7 @@ const FormItem = props => {
 				{props.label || props.input.name}{" "}
 			</label>
 			<div className={cc(["codeflow-form-item__holder", {"codeflow-form-item__holder--inline": props.inline}])}>
-				{props.connected
+				{props.input
 					? React.cloneElement(props.children, { ...props.input })
 					: props.children}
 				<p className="codeflow-form-item__validation">

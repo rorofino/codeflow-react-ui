@@ -23,8 +23,14 @@ class ListMasterDetail extends React.Component {
     }
 
     handleAddClick(column, columnIndex, selectedItems) {
-        if (this.props.onClick) {
-            this.props.onClick(column, columnIndex, selectedItems);
+        if (this.props.onAddClick) {
+            this.props.onAddClick(column, columnIndex, selectedItems);
+        }
+    }
+
+    handlerRemoveClick(column, columnIndex, selectedItems) {
+        if (this.props.onRemoveClick) {
+            this.props.onRemoveClick(column, columnIndex, selectedItems);
         }
     }
 
@@ -66,7 +72,10 @@ class ListMasterDetail extends React.Component {
                                         {column.title}
                                     </div>
                                     {column.manageable ? 
-                                        <Button disabled={!this.state.selectedItems[columnIndex]} flat hover={false} className="codeflow-list-master-detail__column-title-trash">
+                                        <Button disabled={!this.state.selectedItems[columnIndex]} flat hover={false} 
+                                            className="codeflow-list-master-detail__column-title-trash"
+                                            onClick={() => this.handlerRemoveClick(column, columnIndex, this.state.selectedItems)}
+                                            >
                                             <i className="fa fa-trash"></i>
                                         </Button>
                                     : null }
@@ -94,14 +103,6 @@ class ListMasterDetail extends React.Component {
                                         >
                                             {getDescendantProp(item, column.labelProperty)}
                                         </ListItem>);
-                                        // return (
-                                        //     <div key={`col${columnIndex}item${indexItem}`} 
-                                        //         className={cc(["codeflow-list-master-detail__column-item", {"codeflow-list-master-detail__column-item--selected": itemSelected}])}
-                                        //         onClick={() => this.selectItem(item, column, columnIndex, indexItem)}>
-                                        //         <div className="codeflow-list-master-detail__column-text">{getDescendantProp(item, column.labelProperty)}</div>
-                                        //         <div className={cc(["codeflow-list-master-detail__column-icon", {"codeflow-list-master-detail__column-icon--visible": itemSelected && !column.final}])}><i className="fa fa-chevron-right"></i></div>
-                                        //     </div>
-                                        // )
                                     }) : null}
                                 </div>
                             </div>
@@ -117,7 +118,8 @@ class ListMasterDetail extends React.Component {
 ListMasterDetail.propTypes = {
     title: PropTypes.string.isRequired,
     titleIcon: PropTypes.string,
-    onClick: PropTypes.func,
+    onAddClick: PropTypes.func,
+    onRemoveClick: PropTypes.func,
     columns: PropTypes.arrayOf(
         PropTypes.shape({
             title:  PropTypes.string.isRequired,

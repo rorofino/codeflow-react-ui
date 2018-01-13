@@ -48,6 +48,13 @@ class Buttons extends Component {
                 <div className="margin-wrapper"><Button secondary outline rounded loading={this.state.isLoading}>Secondary</Button></div>
                 <div className="margin-wrapper"><Button danger outline rounded loading={this.state.isLoading}>Danger</Button></div>
             </div>
+
+             <div className="demoRow">
+                Circle:
+                <div className="margin-wrapper"><Button primary circle loading={this.state.isLoading} style={{width: 30, height: 30}}><i className="fa fa-pencil"></i></Button></div>
+                <div className="margin-wrapper"><Button primary circle outline loading={this.state.isLoading} style={{width: 30, height: 30}}><i className="fa fa-pencil"></i></Button></div>
+                <div className="margin-wrapper"><Button danger circle loading={this.state.isLoading} style={{width: 30, height: 30}}><i className="fa fa-pencil"></i></Button></div>
+            </div>
             
         </div>
     );

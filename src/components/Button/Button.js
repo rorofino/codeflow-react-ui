@@ -6,7 +6,8 @@ import Spinner from "../Spinner/Spinner";
 const Button = props => {
 	const btnRelevance = cc({
 		"codeflow-button": {
-			"--primary": !props.primary && !props.secondary && !props.danger ? true : props.primary,
+			"--neutral": props.neutral || (!props.primary && !props.secondary && !props.danger),
+			"--primary": props.primary,
 			"--secondary": props.secondary,
 			"--danger": props.danger
 		}
@@ -35,7 +36,7 @@ const Button = props => {
 			type={props.type}
 			style={props.style}
 		>
-			<div className={cc(["codeflow-button__content-box", props.className])}>
+			<div className={cc(["codeflow-button__content-box"])}>
 				{props.loading ? <Spinner size={20} primary={props.primary} secondary={props.secondary} danger={props.danger} /> : null}
 				<div className={cc(["codeflow-button__text", {"codeflow-button__text--loading": props.loading, "codeflow-button__text--bold": props.bold}])}>{props.children}</div>
 			</div>
@@ -47,6 +48,7 @@ Button.propTypes = {
 	primary: PropTypes.bool,
 	secondary: PropTypes.bool,
 	danger: PropTypes.bool,
+	neutral: PropTypes.bool,
 	outline: PropTypes.bool,
 	flat: PropTypes.bool,
 	rounded: PropTypes.bool,
@@ -63,6 +65,7 @@ Button.propTypes = {
 };
 
 Button.defaultProps = {
+	neutral: false,
 	primary: false,
 	secondary: false,
 	danger: false,
