@@ -21,6 +21,7 @@ import Alert from '../../src/components/Alert/Alert';
 import List from '../../src/components/List/List';
 import ListItem from '../../src/components/ListItem/ListItem';
 import Dropdown from '../../src/components/Dropdown/Dropdown';
+import Breadcrumb from '../../src/components/Breadcrumb/Breadcrumb';
 
 class Demo extends Component {
   state = {
@@ -31,6 +32,7 @@ class Demo extends Component {
     loadingModal: false,
     simple: false,
     alertOpen: false,
+    fluidModalOpen: false,
     selectedDropDownItem: '123',
     data: [
       {
@@ -111,6 +113,18 @@ class Demo extends Component {
     return <div>
       <Header></Header>
       <h1>codeflow-react-ui Demo</h1>
+      <div>
+        <div className="margin-wrapper">
+          <Breadcrumb>
+            <Button flat>Home</Button>
+            <Button flat>Users</Button>
+            <Button flat>Rodrigo</Button>
+          </Breadcrumb>
+        </div>
+      </div>
+      <div className="margin-wrapper">
+        <Button primary onClick={() => this.setState({fluidModalOpen: true})}>Open Fluid Modal</Button>
+      </div>
       <div className="margin-wrapper">
         <Dropdown items={['123', '456', '789']} placeholder="Select an item" />
       </div>
@@ -235,6 +249,7 @@ class Demo extends Component {
       </div>
       <Alert 
         isOpen={this.state.alertOpen} 
+        danger
         onDismiss={() => this.setState({alertOpen: false})}
         onConfirm={() => this.setState({alertOpen: false})}
         title="My Alert Title" confirmButtonLabel="Agree" dismissButtonLabel="Disagree">
@@ -245,6 +260,16 @@ class Demo extends Component {
         simple={this.state.simple}
         neutral={this.state.neutral}
         primary={this.state.primary} secondary={this.state.secondary} danger={this.state.danger} onClose={() => this.setState({modalOpen: false})}>
+        Modal de teste
+      </Modal>
+      <Modal title="Fluid modal"
+        position="right"
+        showOverlay={true}
+        isOpen={this.state.fluidModalOpen} 
+        onClose={() => this.setState({fluidModalOpen: false})}
+        simple={this.state.simple}
+        neutral={this.state.neutral}
+        primary={this.state.primary} secondary={this.state.secondary} danger={this.state.danger}>
         Modal de teste
       </Modal>
       <LoadinModal isOpen={this.state.loadingModal} primary={this.state.primary} secondary={this.state.secondary} danger={this.state.danger}>

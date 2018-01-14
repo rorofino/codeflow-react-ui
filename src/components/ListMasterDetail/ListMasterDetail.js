@@ -4,14 +4,9 @@ import cc from 'classcat';
 import Button from "../Button/Button";
 import ListItem from '../ListItem/ListItem';
 import Modal from "../Modal/Modal";
+import Breadcrumb from "../Breadcrumb/Breadcrumb";
 
 const getDescendantProp = (obj, field) => field.split('.').reduce((a, b) => a[b], obj);
-
-// const getDescendantProp = (obj, desc) => {
-//     var arr = desc.split(".");
-//     while(arr.length && (obj = obj[arr.shift()]));
-//     return obj;
-// }
 
 class ListMasterDetail extends React.Component {
 
@@ -40,6 +35,33 @@ class ListMasterDetail extends React.Component {
         this.setState({selectedItems});
     }
 
+    handleBreacrumbClick(column, columnIndex) {
+        const selectedItems = this.state.selectedItems.slice(0, columnIndex);
+        this.setState({selectedItems});
+    }
+
+    buildBreadcrumb() {
+        const {columns} = this.props || [];
+        const items = [
+            <Button flat secondary hover={false} onClick={() => this.handleBreacrumbClick(columns[0], 0)}>
+                <i className={cc([this.props.titleIcon, "codeflow-list-master-detail__home-icon", "padding-right-sm"])}></i>
+                {columns[0].title}
+            </Button>
+        ];
+        this.state.selectedItems.forEach((item, index) => {
+            if (index > 0) {
+                const column = columns[index];
+                items.push(
+                    <Button flat secondary hover={false}  onClick={() => this.handleBreacrumbClick(column, index)}>
+                        <i className={cc([column.titleIcon, "codeflow-list-master-detail__home-icon", "padding-right-sm"])}></i>
+                        {column.title}
+                    </Button>
+                );
+            }
+        });
+        return items;
+    }
+
     render() {
         const {columns} = this.props || [];
         const {selectedItems} = this.state;
@@ -55,10 +77,9 @@ class ListMasterDetail extends React.Component {
         return (
             <div className="codeflow-list-master-detail">
                 <div className="codeflow-list-master-detail__title">
-                    <div className="codeflow-list-master-detail__home-icon">
-                        <i className={cc([this.props.titleIcon, "padding-right-sm"])}></i>
-                    </div>
-                    {this.props.title}
+                    <Breadcrumb>
+                        {this.buildBreadcrumb()}
+                    </Breadcrumb>
                 </div>
                 <div className="codeflow-list-master-detail__columns">
                     {
@@ -116,7 +137,6 @@ class ListMasterDetail extends React.Component {
 }
 
 ListMasterDetail.propTypes = {
-    title: PropTypes.string.isRequired,
     titleIcon: PropTypes.string,
     onAddClick: PropTypes.func,
     onRemoveClick: PropTypes.func,
@@ -130,6 +150,10 @@ ListMasterDetail.propTypes = {
             final: PropTypes.bool
         })
     ).isRequired,
+};
+
+ListMasterDetail.defaultProps = {
+    titleIcon: "fa fa-home"
 };
 
 export default ListMasterDetail;

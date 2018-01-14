@@ -1,0 +1,23 @@
+.codeflow-breadcrumb {
+
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: flex-start;
+    position: relative;
+    font-size: $font-size-xs;     
+    
+    &__item {
+
+        display: flex;
+        justify-content: center;
+        align-items: center;
+
+        &:last-child {
+            .codeflow-breadcrumb__chevron {
+                display: none;
+            }
+        }
+    }
+
+}

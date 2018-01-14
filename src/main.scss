@@ -1,8 +1,8 @@
-@import 'stylesheets/base/typography';
 
 // @import 'stylesheets/themes/*';
 
 @import 'stylesheets/abstract/variables';
+@import 'stylesheets/base/typography';
 @import 'stylesheets/abstract/functions';
 @import 'stylesheets/abstract/helpers';
 @import 'stylesheets/abstract/mixins';
@@ -11,6 +11,7 @@
 
 @import 'components/Alert/Alert';
 @import 'components/Button/Button';
+@import 'components/Breadcrumb/Breadcrumb';
 @import 'components/Calendar/Calendar';
 @import 'components/Checkbox/Checkbox';
 @import 'components/Dropdown/Dropdown';

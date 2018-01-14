@@ -1,5 +1,6 @@
 export Alert from './components/Alert/Alert';
 export Button from './components/Button/Button';
+export Breadcrumb from './components/Breadcrumb/Breadcrumb';
 export Calendar from './components/Calendar/Calendar';
 export Checkbox from './components/Checkbox/Checkbox';
 export Dropdown from './components/Dropdown/Dropdown';

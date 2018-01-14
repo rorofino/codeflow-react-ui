@@ -8,8 +8,25 @@ import Button from '../Button/Button';
 const Modal = props => (
 	<ReactModal
 		{...props}
-		className={cc(["codeflow-modal", props.className, {"codeflow-modal--extra-padding": !props.simple}])}
-		overlayClassName="codeflow-overlay"
+		className={
+			cc([
+				"codeflow-modal", 
+				{
+					"codeflow-modal": {
+						"--extra-padding": !props.simple && (props.position === DEFAULT || props.position === CENTER),
+						"--default": props.position === DEFAULT, 
+						"--center": props.position === CENTER,
+						"--top": props.position === TOP,
+						"--right": props.position === RIGHT,
+						"--bottom": props.position === BOTTOM,
+						"--left": props.position === LEFT,
+
+					}
+				},
+				props.className,
+			])
+		}
+		overlayClassName={cc(["codeflow-overlay", {"codeflow-overlay--hide": !props.showOverlay}])}
 		shouldCloseOnEsc={props.shouldCloseOnEsc}
 		shouldCloseOnOverlayClick={false}
 		ariaHideApp={false}
@@ -19,7 +36,7 @@ const Modal = props => (
 				"codeflow-modal__title",
 				{
 					"codeflow-modal__title": {
-							"--simple": props.simple || props.neutral,
+							"--simple": props.simple || props.neutral || (props.position !== DEFAULT && props.position !== CENTER),
 							"--neutral": props.neutral,
 							"--primary": !props.secondary && !props.danger ? true : false,
 							"--secondary": props.secondary,
@@ -45,6 +62,13 @@ const Modal = props => (
 	</ReactModal>
 );
 
+const DEFAULT = "default";
+const CENTER = "center";
+const TOP = "top";
+const RIGHT = "right";
+const BOTTOM = "bottom";
+const LEFT = "left";
+
 Modal.propTypes = {
 	isOpen: PropTypes.bool,
 	showTitle: PropTypes.bool,
@@ -55,6 +79,8 @@ Modal.propTypes = {
 	primary: PropTypes.bool,
 	secondary: PropTypes.bool,
 	danger: PropTypes.bool,
+	position: PropTypes.oneOf([DEFAULT, CENTER, TOP, RIGHT, BOTTOM, LEFT]),
+	showOverlay: PropTypes.bool,
 	showClose: PropTypes.bool,
 	onClose: PropTypes.func,
 	className: PropTypes.string,
@@ -65,6 +91,8 @@ Modal.propTypes = {
 Modal.defaultProps = {
 	isOpen: false,
 	showTitle: true,
+	showOverlay: true,
+	position: DEFAULT,
 	title: "Modal title",
 	simple: false,
 	primary: false,
