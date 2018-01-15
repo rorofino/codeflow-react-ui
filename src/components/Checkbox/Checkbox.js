@@ -33,7 +33,7 @@ const Checkbox = props => [
 		])}
 		onClick={event => handleInternalClick(event, props)}
 	/>,
-	<span key="3" className="codeflow-checkbox__label">
+	<span key="3" className="codeflow-checkbox__label" onClick={event => handleInternalClick(event, props)}>
 		{props.label}
 	</span>
 ];

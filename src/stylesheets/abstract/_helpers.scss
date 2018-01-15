@@ -8,6 +8,18 @@
     justify-content: center;
 }
 
+.color-weak {
+    color: $color-text-weak;
+}
+
+.color-strong {
+    color: $color-text-strong;
+}
+
+.color-invert {
+    color: $color-text-invert;
+}
+
 .padding-xs {
     padding: $padding-xs;
 }

@@ -1,7 +1,5 @@
 .codeflow-page {
-    background-color: $color-background-primary;
-    box-shadow: 0 2px 5px 0 rgba(0,0,0,.16), 0 2px 10px 0 rgba(0,0,0,.12);
+    background-color: $color-background;
+    box-shadow: 0 2px 5px 0 $color-shadow, 0 2px 10px 0 $color-shadow-weak;
     border-radius: 5px;
-    padding: 1rem;
-    min-height: 8rem;
 }

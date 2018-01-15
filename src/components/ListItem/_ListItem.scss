@@ -6,7 +6,7 @@
     align-items: center;
     min-height: 3.2rem;
     font-weight: 400;
-    color: $color-text-secondary;
+    color: $color-text-weak;
     padding: 0 $padding-md;
 
     &__body {
@@ -15,61 +15,25 @@
 
     &--selected {
         background-color: $color-hover;
-        color: $color-text-primary;
+        color: $color-text;
     }
 
     &:hover {
         background-color: $color-hover;
-        color: $color-text-default;
+        color: $color-text;
         cursor: pointer;
     }
 
     &--primary {
-
-        margin: 0 $margin-sm;
-        padding-top: $padding-sm;
-        padding-bottom: $padding-sm;
-        border-radius: 2px;
-        
-        &:hover, &.codeflow-list-item--selected {
-            box-shadow: 0 5px 11px 0 rgba(0,0,0,.18), 0 4px 15px 0 rgba(0,0,0,.15);
-            background-color: $color-primary;
-            border-color: $color-primary;
-            color: $color-white;
-        }
-
+        @include list-item-type($color-primary, $color-primary-invert);
     }
 
     &--secondary {
-
-        margin: 0 $margin-sm;
-        padding-top: $padding-sm;
-        padding-bottom: $padding-sm;
-        border-radius: 2px;
-        
-        &:hover, &.codeflow-list-item--selected {
-            box-shadow: 0 5px 11px 0 rgba(0,0,0,.18), 0 4px 15px 0 rgba(0,0,0,.15);
-            background-color: $color-secondary;
-            border-color: $color-secondary;
-            color: $color-white;
-        }
-
+        @include list-item-type($color-secondary, $color-secondary-invert);
     }
 
     &--danger {
-
-        margin: 0 $margin-sm;
-        padding-top: $padding-sm;
-        padding-bottom: $padding-sm;
-        border-radius: 2px;
-        
-        &:hover, &.codeflow-list-item--selected {
-            box-shadow: 0 5px 11px 0 rgba(0,0,0,.18), 0 4px 15px 0 rgba(0,0,0,.15);
-            background-color: $color-danger;
-            border-color: $color-danger;
-            color: $color-white;
-        }
-
+        @include list-item-type($color-danger, $color-danger-invert);
     }
 
 

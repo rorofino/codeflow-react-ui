@@ -1,7 +1,6 @@
 .codeflow-list {
-    background-color: #fff;
+    background-color: $color-background;
     background-clip: padding-box;
-    // border: 1px solid rgba(0,0,0,.15);
     border-radius: .25rem;
 
     min-height: 15rem;
@@ -9,5 +8,5 @@
 
     padding: $padding-sm 0;
 
-    box-shadow: 0 2px 5px 0 rgba(0,0,0,.16), 0 2px 10px 0 rgba(0,0,0,.12);
+    box-shadow: 0 2px 5px 0 $color-shadow, 0 2px 10px 0 $color-shadow-weak;
 }

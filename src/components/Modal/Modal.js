@@ -4,48 +4,11 @@ import ReactModal from "react-modal";
 import cc from "classcat";
 
 import Button from '../Button/Button';
+import Panel from '../Panel/Panel';
 
-const Modal = props => (
-	<ReactModal
-		{...props}
-		className={
-			cc([
-				"codeflow-modal", 
-				{
-					"codeflow-modal": {
-						"--extra-padding": !props.simple && (props.position === DEFAULT || props.position === CENTER),
-						"--default": props.position === DEFAULT, 
-						"--center": props.position === CENTER,
-						"--top": props.position === TOP,
-						"--right": props.position === RIGHT,
-						"--bottom": props.position === BOTTOM,
-						"--left": props.position === LEFT,
-
-					}
-				},
-				props.className,
-			])
-		}
-		overlayClassName={cc(["codeflow-overlay", {"codeflow-overlay--hide": !props.showOverlay}])}
-		shouldCloseOnEsc={props.shouldCloseOnEsc}
-		shouldCloseOnOverlayClick={false}
-		ariaHideApp={false}
-	>
-		<div className={
-			cc([
-				"codeflow-modal__title",
-				{
-					"codeflow-modal__title": {
-							"--simple": props.simple || props.neutral || (props.position !== DEFAULT && props.position !== CENTER),
-							"--neutral": props.neutral,
-							"--primary": !props.secondary && !props.danger ? true : false,
-							"--secondary": props.secondary,
-							"--danger": props.danger,
-							"--hide": !props.showTitle
-						}
-				}
-			])
-		}>
+const modalTitle = props => {
+	return (
+		<div className={cc(["codeflow-modal__title"])}>
 			<div className="codeflow-modal__title-box">
 				{props.icon ? <i className={cc(["codeflow-modal__title-icon", props.icon])} /> : null } 
 				<span>{props.title}</span>
@@ -56,11 +19,53 @@ const Modal = props => (
 			</Button>
 			}
 		</div>
-		<div className={cc(["codeflow-modal__body", props.bodyClassName])}>
-			{props.children}
-		</div>
-	</ReactModal>
-);
+	);
+}
+
+const Modal = props => {
+	const {title, ...otherProps} = props;
+	return (
+		<ReactModal
+			{...props}
+			className={
+				cc([
+					"codeflow-modal", 
+					{
+						"codeflow-modal": {
+							"--default": props.position === DEFAULT, 
+							"--center": props.position === CENTER,
+							"--top": props.position === TOP,
+							"--right": props.position === RIGHT,
+							"--bottom": props.position === BOTTOM,
+							"--left": props.position === LEFT,
+
+						}
+					},
+					props.className,
+				])
+			}
+			overlayClassName={cc(["codeflow-overlay", {"codeflow-overlay--hide": !props.showOverlay}])}
+			shouldCloseOnEsc={props.shouldCloseOnEsc}
+			shouldCloseOnOverlayClick={false}
+			ariaHideApp={false}
+		>
+			{props.showTitle ? 
+				<Panel className="codeflow-modal__panel" title={() => modalTitle(props)}
+					primary={props.primary} secondary={props.secondary} danger={props.danger} 
+					float={props.float} footer={props.footer}
+				>
+					<div className={cc(["codeflow-modal__body", props.bodyClassName])}>
+						{props.children}
+					</div>
+				</Panel>
+			: 
+				<div className={cc(["codeflow-modal__body", props.bodyClassName])}>
+					{props.children}
+				</div>
+			}
+		</ReactModal>
+	);
+};
 
 const DEFAULT = "default";
 const CENTER = "center";
@@ -74,8 +79,7 @@ Modal.propTypes = {
 	showTitle: PropTypes.bool,
 	icon: PropTypes.string,
 	title: PropTypes.string,
-	simple: PropTypes.bool,
-	neutral: PropTypes.bool,
+	float: PropTypes.bool,
 	primary: PropTypes.bool,
 	secondary: PropTypes.bool,
 	danger: PropTypes.bool,
@@ -94,7 +98,7 @@ Modal.defaultProps = {
 	showOverlay: true,
 	position: DEFAULT,
 	title: "Modal title",
-	simple: false,
+	float: true,
 	primary: false,
 	secondary: false,
 	danger: false,

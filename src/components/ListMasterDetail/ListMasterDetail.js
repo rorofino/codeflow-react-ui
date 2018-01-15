@@ -43,8 +43,8 @@ class ListMasterDetail extends React.Component {
     buildBreadcrumb() {
         const {columns} = this.props || [];
         const items = [
-            <Button flat secondary hover={false} onClick={() => this.handleBreacrumbClick(columns[0], 0)}>
-                <i className={cc([this.props.titleIcon, "codeflow-list-master-detail__home-icon", "padding-right-sm"])}></i>
+            <Button key={0} flat secondary hover={false} onClick={() => this.handleBreacrumbClick(columns[0], 0)} className="codeflow-list-master-detail__breadcrumb-button">
+                <i className={cc([this.props.titleIcon, "codeflow-list-master-detail__breadcrumb-icon", "padding-right-sm"])}></i>
                 {columns[0].title}
             </Button>
         ];
@@ -52,8 +52,8 @@ class ListMasterDetail extends React.Component {
             if (index > 0) {
                 const column = columns[index];
                 items.push(
-                    <Button flat secondary hover={false}  onClick={() => this.handleBreacrumbClick(column, index)}>
-                        <i className={cc([column.titleIcon, "codeflow-list-master-detail__home-icon", "padding-right-sm"])}></i>
+                    <Button key={index} flat secondary hover={false}  onClick={() => this.handleBreacrumbClick(column, index)} className="codeflow-list-master-detail__breadcrumb-button">
+                        <i className={cc([column.titleIcon, "codeflow-list-master-detail__breadcrumb-icon", "padding-right-sm"])}></i>
                         {column.title}
                     </Button>
                 );

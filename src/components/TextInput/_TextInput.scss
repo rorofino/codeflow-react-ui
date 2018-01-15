@@ -1,14 +1,13 @@
 .codeflow-material-input {
     width: 100%;
-    display: block;
-    border: none;
-    padding: 10px 0;
-    border-bottom: solid 1px $color-border-black;
+    border: none !important;
+    padding: $padding-sm 0 !important;
+    border-bottom: solid 1px $color-border !important;
 
     &:focus {
         box-shadow: none;
         outline: none;
         border-width: 2px;
-        border-color: $color-primary-medium;
+        border-color: $color-primary-medium !important;
     }
 }

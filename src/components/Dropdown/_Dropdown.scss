@@ -8,7 +8,7 @@ $button-height: 3.5rem;
 
     &--material {
         border: none;
-        border-bottom: solid 1px #bdbdbd;
+        border-bottom: solid 1px $color-border;
     }
 
     &__button {
@@ -51,6 +51,7 @@ $button-height: 3.5rem;
 
     &__list {
         position: absolute;
+        z-index: 2;
         width: 100%;
         top: 100%;
         left: 0;

@@ -10,9 +10,9 @@
     border-radius: .25rem;
     -webkit-appearance: button;
     cursor: pointer;
-    color: $color-white;
+    color: inherit;
 
-    box-shadow: 0 2px 5px 0 rgba(0,0,0,.16), 0 2px 10px 0 rgba(0,0,0,.12);
+    box-shadow: 0 2px 5px 0 $color-shadow, 0 2px 10px 0 $color-shadow-weak;
 
     &:disabled {
         opacity: .65;
@@ -40,19 +40,19 @@
     }
 
     &--neutral {
-        @include button-type($color-text-default);
+        @include button-type(inherit, inherit);
     }
 
     &--primary {
-        @include button-type($color-primary);
+        @include button-type($color-primary, $color-primary-invert);
     }
 
     &--secondary {
-        @include button-type($color-secondary);
+        @include button-type($color-secondary, $color-secondary-invert);
     }
 
     &--danger {
-        @include button-type($color-danger);
+        @include button-type($color-danger, $color-danger-invert);
     }
 
     

@@ -5,13 +5,13 @@
     min-width: 40rem;
 
     &__title {
-        color: $color-text-title;
-        font-size: $size-title-font;
+        color: $color-text-strong;
+        font-size: $font-size-lg;
         font-weight: 700;
     }
 
     &__body {
-        color: $color-text-default;
+        color: $color-text;
         font-weight: 500;
     }
 

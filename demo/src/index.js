@@ -22,6 +22,16 @@ import List from '../../src/components/List/List';
 import ListItem from '../../src/components/ListItem/ListItem';
 import Dropdown from '../../src/components/Dropdown/Dropdown';
 import Breadcrumb from '../../src/components/Breadcrumb/Breadcrumb';
+import Panels from './panels';
+
+const footerModal = props => {
+  return (
+    [
+      <Button className="margin-right-sm">OK</Button>,
+      <Button>DISMISS</Button>
+    ]
+  );
+}
 
 class Demo extends Component {
   state = {
@@ -30,7 +40,7 @@ class Demo extends Component {
     secondary: false,
     danger: false,
     loadingModal: false,
-    simple: false,
+    float: false,
     alertOpen: false,
     fluidModalOpen: false,
     selectedDropDownItem: '123',
@@ -113,6 +123,8 @@ class Demo extends Component {
     return <div>
       <Header></Header>
       <h1>codeflow-react-ui Demo</h1>
+
+      <Panels />
       <div>
         <div className="margin-wrapper">
           <Breadcrumb>
@@ -190,16 +202,16 @@ class Demo extends Component {
             <Button primary onClick={() => this.setState({alertOpen: true})}>Open Alert</Button>
           </div>
           <div className="margin-wrapper">
-            <Button primary onClick={() => this.setState({modalOpen: true, primary: true, secondary: false, danger: false, simple: false, neutral: false})}>Open Modal</Button>
+            <Button primary onClick={() => this.setState({modalOpen: true, primary: true, secondary: false, danger: false, float: false, neutral: false})}>Open Modal</Button>
           </div>
           <div className="margin-wrapper">
-            <Button secondary onClick={() => this.setState({modalOpen: true, primary: false, secondary: true, danger: false, simple: true, neutral: false})}>Open Modal</Button>
+            <Button secondary onClick={() => this.setState({modalOpen: true, primary: false, secondary: true, danger: false, float: true, neutral: false})}>Open Modal</Button>
           </div>
           <div className="margin-wrapper">
-            <Button danger onClick={() => this.setState({modalOpen: true, primary: false, secondary: false, danger: true, simple: false, neutral: false})}>Open Modal</Button>
+            <Button danger onClick={() => this.setState({modalOpen: true, primary: false, secondary: false, danger: true, float: false, neutral: false})}>Open Modal</Button>
           </div>
           <div className="margin-wrapper">
-            <Button primary onClick={() => this.setState({modalOpen: true, primary: false, secondary: false, danger: false, neutral: true})}>Open Neutral</Button>
+            <Button primary onClick={() => this.setState({modalOpen: true, primary: false, secondary: false, danger: false, overflow: false, footerModal})}>Open Neutral</Button>
           </div>
           <div className="margin-wrapper">
             <Button primary onClick={() => this.setState({loadingModal: true})}>Open Loading Modal</Button>
@@ -257,17 +269,18 @@ class Demo extends Component {
       </Alert>
       <Modal icon="fa fa-pencil" 
         isOpen={this.state.modalOpen} 
-        simple={this.state.simple}
+        float={this.state.float}
         neutral={this.state.neutral}
-        primary={this.state.primary} secondary={this.state.secondary} danger={this.state.danger} onClose={() => this.setState({modalOpen: false})}>
+        primary={this.state.primary} secondary={this.state.secondary} danger={this.state.danger} onClose={() => this.setState({modalOpen: false})}
+        footer={this.state.footerModal}>
         Modal de teste
       </Modal>
       <Modal title="Fluid modal"
-        position="right"
+        position="top"
         showOverlay={true}
         isOpen={this.state.fluidModalOpen} 
         onClose={() => this.setState({fluidModalOpen: false})}
-        simple={this.state.simple}
+        float={this.state.float}
         neutral={this.state.neutral}
         primary={this.state.primary} secondary={this.state.secondary} danger={this.state.danger}>
         Modal de teste

@@ -7,19 +7,24 @@ $grey-background-color: #f5f5f5;
 
     display: flex;
     flex-direction: column;
-    box-shadow: 0px 3px 1px -2px rgba(0,0,0,0.2), 0px 2px 2px 0px rgba(0,0,0,0.14), 0px 1px 5px 0px rgba(0,0,0,0.12);
+    box-shadow: 0px 3px 1px -2px rgba(0,0,0,0.2), 0px 2px 2px 0px $color-shadow, 0px 1px 5px 0px $color-shadow-weak;
 
     &__title {
         height: 5.5rem;
         background-color: $grey-background-color;
-        box-shadow: 0 -1px 0 rgba(0,0,0,0.12) inset;
+        box-shadow: 0 -1px 0 $color-shadow-weak inset;
         padding-left: $padding-left;
         display: flex;
         align-items: center;
-        color: $color-text-primary;
+        color: $color-text-strong;
     }
 
-    &__home-icon {
+    &__breadcrumb-button {
+        font-size: $font-size-md;
+        color: $color-text-weak;
+    }
+
+    &__breadcrumb-icon {
         font-size: $font-size-lg;
     }
 
@@ -32,16 +37,16 @@ $grey-background-color: #f5f5f5;
         display: flex;
         flex-direction: column;
         flex: 1;
-        border-right: 1px solid rgba(0,0,0,0.12);
+        border-right: 1px solid #e0e0e0;
     }
 
     &__column-title {
         display: flex;
         align-items: center;
         background-color: $grey-background-color;
-        box-shadow: 0 -1px 0 rgba(0,0,0,0.12) inset;
+        box-shadow: 0 -1px 0 $color-shadow-weak inset;
         height: 6rem;
-        color: $color-text-primary;
+        color: $color-text;
     }
 
     &__column-text {
@@ -60,7 +65,7 @@ $grey-background-color: #f5f5f5;
     &__column-title-trash {
         font-size: $font-size-md;
         margin-right: 0.5rem;
-        color: $color-text-primary;
+        color: $color-text;
     }
 
     &__column-list {

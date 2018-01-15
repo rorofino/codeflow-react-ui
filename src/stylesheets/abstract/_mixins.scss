@@ -21,10 +21,11 @@
     }
 }
 
-@mixin button-type($main-color) {
+@mixin button-type($main-color, $invert-color) {
 
   background-color: $main-color;
   border-color: $main-color;
+  color: $invert-color;
 
   &--outline {
       background-color: transparent;
@@ -44,13 +45,32 @@
 
   &--hover {
       &:active:not(:disabled) {
-          box-shadow: buildButtonShadowBox($main-color);
+        @if type-of($main-color) == color {
+
+            box-shadow: 0 0 0 0.2rem rgba($main-color, .5);
+        }
       }
 
       &:hover {
-          color: $color-white;
+          color: $invert-color;
           background-color: $main-color;
           border-color: $main-color;
+          box-shadow: 0 5px 11px 0 $color-shadow-strong, 0 4px 15px 0 $color-shadow;
       }
   }    
+}
+
+@mixin list-item-type($main-color, $invert-color) {
+    
+    margin: 0 $margin-sm;
+    padding-top: $padding-sm;
+    padding-bottom: $padding-sm;
+    border-radius: 2px;
+        
+    &:hover, &.codeflow-list-item--selected {
+        box-shadow: 0 5px 11px 0 $color-shadow, 0 4px 15px 0 $color-shadow-weak;
+        background-color: $main-color;
+        border-color: $main-color;
+        color: $invert-color;
+    }        
 }
