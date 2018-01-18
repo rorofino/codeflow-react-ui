@@ -62,10 +62,9 @@
 
 @mixin list-item-type($main-color, $invert-color) {
     
-    margin: 0 $margin-sm;
-    padding-top: $padding-sm;
-    padding-bottom: $padding-sm;
+
     border-radius: 2px;
+    color: $main-color;
         
     &:hover, &.codeflow-list-item--selected {
         box-shadow: 0 5px 11px 0 $color-shadow, 0 4px 15px 0 $color-shadow-weak;
@@ -73,4 +72,8 @@
         border-color: $main-color;
         color: $invert-color;
     }        
+}
+
+@mixin popover-arrow() {
+        
 }

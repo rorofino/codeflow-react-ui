@@ -28,6 +28,8 @@ const Button = props => {
 		}
 	]);
 
+	const renderedIcon = typeof props.icon === "function" ? props.icon() : (props.icon ? props.icon : null);
+
 	return (
 		<button
 			onClick={props.onClick}
@@ -38,7 +40,8 @@ const Button = props => {
 		>
 			<div className={cc(["codeflow-button__content-box"])}>
 				{props.loading ? <Spinner size={20} primary={props.primary} secondary={props.secondary} danger={props.danger} /> : null}
-				<div className={cc(["codeflow-button__text", {"codeflow-button__text--loading": props.loading, "codeflow-button__text--bold": props.bold}])}>{props.children}</div>
+				{renderedIcon && !props.loading ? renderedIcon : null}
+				<div className={cc(["codeflow-button__text", {"codeflow-button__text--padding": (props.loading || renderedIcon != null), "codeflow-button__text--bold": props.bold}])}>{props.children}</div>
 			</div>
 		</button>
 	);
@@ -57,6 +60,7 @@ Button.propTypes = {
 	disabled: PropTypes.bool,
 	loading: PropTypes.bool,
 	bold: PropTypes.bool,
+	icon: PropTypes.oneOfType([PropTypes.node, PropTypes.func]),
 	onClick: PropTypes.func,
 	children: PropTypes.any,
 	className: PropTypes.string,

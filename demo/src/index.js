@@ -23,6 +23,9 @@ import ListItem from '../../src/components/ListItem/ListItem';
 import Dropdown from '../../src/components/Dropdown/Dropdown';
 import Breadcrumb from '../../src/components/Breadcrumb/Breadcrumb';
 import Panels from './panels';
+import Popover from '../../src/components/Popover/Popover';
+import { POSITION } from '../../src/constants';
+import NavBar from '../../src/components/NavBar/NavBar';
 
 const footerModal = props => {
   return (
@@ -121,7 +124,14 @@ class Demo extends Component {
 
   render() {
     return <div>
-      <Header></Header>
+      <NavBar title="CodeFlow" 
+        left={<Button flat hover={false}><i className="fa fa-bars"></i></Button>}
+        right={<Dropdown displayPlaceHolderOnList={false} flat hover={false} placeholder="Profile" icon={<i className="fa fa-user"></i>}></Dropdown>}
+        >
+        <Button flat hover={false} ><i className="fa fa-bell margin-right-sm"> </i>Notifications</Button>
+        <Button flat hover={false} ><i className="fa fa-envelope margin-right-sm"> </i>Contact</Button>
+        <Button flat hover={false} ><i className="fa fa-comments-o margin-right-sm"> </i>Support</Button>
+      </NavBar>
       <h1>codeflow-react-ui Demo</h1>
 
       <Panels />
@@ -135,10 +145,23 @@ class Demo extends Component {
         </div>
       </div>
       <div className="margin-wrapper">
+        <Popover isOpen={this.state.overlayOpen} content={<h1>Tesaasdasdasdasdasdassdaste</h1>} arrow>
+          <Button primary onClick={() => this.setState({overlayOpen: !this.state.overlayOpen})}>PopOver</Button>
+        </Popover>
+      </div>
+      <div className="margin-wrapper">
         <Button primary onClick={() => this.setState({fluidModalOpen: true})}>Open Fluid Modal</Button>
       </div>
       <div className="margin-wrapper">
-        <Dropdown items={['123', '456', '789']} placeholder="Select an item" />
+        <Dropdown items={['123', '456', '789']} placeholder="Select an item" outline primary rounded />
+      </div>
+      <div className="margin-wrapper">
+        <Dropdown placeholder="Select an item" outline danger rounded>
+          <ListItem label="Title" disabled />
+          <ListItem label="X_123" />
+          <ListItem label="X_456" />
+          <ListItem label="X_789" />
+        </Dropdown>
       </div>
       <div className="margin-wrapper">
         <Dropdown value={this.state.selectedDropDownItem} 
@@ -149,12 +172,25 @@ class Demo extends Component {
           ]} placeholder="Select an item" material primary />
       </div>
       <div className="margin-wrapper">
+        <Popover isOpen={this.state.overlayOpen} content={<h1>adsdasdasdasdasdasdasd</h1>} position={POSITION.LEFT}>
+          <Button primary onClick={() => this.setState({overlayOpen: !this.state.overlayOpen})}>PopOver</Button>
+        </Popover>
+      </div>
+      <div className="margin-wrapper">
         <Dropdown items={['123', '456', '789']} placeholder="Select an item" flat hover={false} />
       </div>
       <div className="margin-wrapper">
         <Dropdown items={['123', '456', '789']} placeholder="Select an item" flat />
       </div>
       <Buttons />
+      <div className="margin-wrapper">
+        <Dropdown placeholder="Select an item" outline danger>
+          <ListItem label="Title" disabled />
+          <ListItem label="X_123" />
+          <ListItem label="X_456" />
+          <ListItem label="X_789" />
+        </Dropdown>
+      </div>
       <Spinner primary />
       <Spinner secondary />
       <Spinner danger />
@@ -255,6 +291,10 @@ class Demo extends Component {
           <List danger>
             <ListItem label="123" icon="fa fa-pencil"/>
             <ListItem label="456" icon="fa fa-pencil"/>
+            <ListItem label="789" icon="fa fa-pencil"/>
+            <ListItem separator/>
+            <ListItem label="789" icon="fa fa-pencil"/>
+            <ListItem label="789" icon="fa fa-pencil"/>
             <ListItem label="789" icon="fa fa-pencil"/>
           </List>
         </div>

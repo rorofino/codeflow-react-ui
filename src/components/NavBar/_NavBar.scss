@@ -1,0 +1,31 @@
+.codeflow-navbar {
+    display: flex;
+    flex: 1;
+    flex-direction: row;
+    align-items: center;
+    padding: 0 $padding-md;
+
+    &__left {
+        font-size: 2.2rem;
+        margin-right: $margin-md;
+    }
+
+    &__title {
+        font-size: $font-size-md2;
+        font-weight: 400;
+        color: $color-text-weak;
+    }
+
+    &__nav {
+        flex: 1;
+    }
+
+    &__ul {
+        list-style: none;
+        display: flex;
+        flex: 1;
+        flex-direction: row;
+        justify-content: flex-end;
+        align-items: center;
+    }
+}

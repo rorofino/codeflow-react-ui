@@ -7,7 +7,9 @@
     min-height: 3.2rem;
     font-weight: 400;
     color: $color-text-weak;
-    padding: 0 $padding-md;
+
+    margin: 0 $margin-sm;
+    padding: $padding-sm $padding-sm;
 
     &__body {
         flex: 1;
@@ -16,6 +18,16 @@
     &--selected {
         background-color: $color-hover;
         color: $color-text;
+    }
+
+    &--disabled {
+        color: $color-dsabled;
+
+        &:hover {
+            background-color: transparent !important;
+            cursor: default !important;
+            color: $color-dsabled !important;
+        }
     }
 
     &:hover {
@@ -35,6 +47,13 @@
     &--danger {
         @include list-item-type($color-danger, $color-danger-invert);
     }
+}
 
-
+.codeflow-list-item__hr {
+    display: block;
+    width: 100%;
+    height: 1px;
+    margin: $margin-md 0;
+    background-color: $color-border-light;
+    border-top: 1px solid $color-border-light;
 }

@@ -13,13 +13,16 @@ $color-danger-light: lighten($color-danger, 40%);
 
 $color-hover: rgba(0,0,0,0.08);
 
+$color-dsabled: rgba(0,0,0,.3);
+
 $color-text: rgba(0,0,0,0.87);
 $color-text-invert: rgba(255,255,255,0.87);
 $color-text-strong: #000;
 $color-text-weak: rgba(0,0,0,0.54);
 
 $color-background: #fff;
-$color-border: #bdbdbd;
+$color-border: #bdbdbd; //d4d4d5
+$color-border-light: #eee;
 
 $color-shadow: rgba(0,0,0,.16);
 $color-shadow-weak: rgba(0,0,0,.12);
@@ -39,12 +42,20 @@ $margin-xl: 5rem;
 
 $font-size-xs: 1rem;
 $font-size-sm: 1.2rem;
-$font-size-md: 1.6rem;
+$font-size-md: 1.4rem;
+$font-size-md2: 1.8rem;
 $font-size-lg: 2.4rem;
 $font-size-xl: 3.2rem;
 
+$icon-size-sm: 1.2rem;
+$icon-size-md: 1.6rem;
+$icon-size-lg: 2.4rem;
+
+$z-index: 2;
+
 $breakpoints: (
-  'medium': (min-width: 800px),
-  'large': (min-width: 1000px),
+  'small': (min-width: 576px),
+  'medium': (min-width: 768px),
+  'large': (min-width: 992px),
   'huge': (min-width: 1200px),
 );

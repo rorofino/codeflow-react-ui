@@ -1,14 +1,10 @@
 .codeflow-button {
     display: inline-block;
     font-weight: 400;
-    text-align: center;
-    white-space: nowrap;
-    vertical-align: middle;
-    user-select: none;
+    font-size: inherit;
     border: 1px solid transparent;
     padding: $padding-sm/2 $padding-sm;
     border-radius: .25rem;
-    -webkit-appearance: button;
     cursor: pointer;
     color: inherit;
 
@@ -69,7 +65,7 @@
         align-items: center;
         flex: 1;
 
-        &--loading {
+        &--padding {
             margin-left: 10px;
         }
 

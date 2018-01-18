@@ -14,3 +14,5 @@ export Panel from './components/Panel/Panel';
 export Spinner from './components/Spinner/Spinner';
 export TextInput from './components/TextInput/TextInput';
 export Widget from './components/Widget/Widget';
+
+export constants from './constants';

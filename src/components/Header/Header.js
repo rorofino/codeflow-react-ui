@@ -1,9 +1,10 @@
 import React from "react";
+import cc from 'classcat';
 
 const Header = props => (
-  <div className="codeflow-header">
+  <header className={cc(["codeflow-header", props.className])}>
     {props.children}
-  </div>
+  </header>
 );
 
 export default Header;
