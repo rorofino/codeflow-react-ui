@@ -6,13 +6,13 @@ import ListItem from '../ListItem/ListItem';
 const List = props => (
     <ul className={cc(["codeflow-list", props.className])}>
         {
-            props.items ? props.items.map(item => {
+            props.items ? props.items.map((item, index) => {
                 return (
-                    <li>
-                        <ListItem key={item.value || item}
+                    <li key={`${item.value || item}-${index}`}>
+                        <ListItem
                             primary={props.primary} secondary={props.secondary} danger={props.danger}
                             selected={props.selectedItem && (item.value === props.selectedItem || item === props.selectedItem)} onClick={() => props.onClick ? props.onClick(item) : null}>
-                            {typeof item == "string" ? item : item.label}
+                            {item.hasOwnProperty('label') ? item.label : item}
                         </ListItem>
                     </li>
                     )

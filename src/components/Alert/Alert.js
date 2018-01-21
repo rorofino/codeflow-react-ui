@@ -29,4 +29,10 @@ const Alert = (props) => (
     </Modal>
 );
 
+Alert.defaultProps = {
+    primary: false,
+    secondary: false,
+    danger: false
+};
+
 export default Alert;

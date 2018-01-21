@@ -26,12 +26,14 @@ import Panels from './panels';
 import Popover from '../../src/components/Popover/Popover';
 import { POSITION } from '../../src/constants';
 import NavBar from '../../src/components/NavBar/NavBar';
+import Table, {Column} from '../../src/components/Table/Table';
+import Panel from '../../src/components/Panel/Panel';
 
 const footerModal = props => {
   return (
     [
-      <Button className="margin-right-sm">OK</Button>,
-      <Button>DISMISS</Button>
+      <Button key="key1" className="margin-right-sm">OK</Button>,
+      <Button key="key2">DISMISS</Button>
     ]
   );
 }
@@ -122,6 +124,11 @@ class Demo extends Component {
     ]
   };
 
+  onCloseFluid() {
+    console.log('called close');
+    this.setState({fluidModalOpen: false})
+  }
+
   render() {
     return <div>
       <NavBar title="CodeFlow" 
@@ -133,6 +140,46 @@ class Demo extends Component {
         <Button flat hover={false} ><i className="fa fa-comments-o margin-right-sm"> </i>Support</Button>
       </NavBar>
       <h1>codeflow-react-ui Demo</h1>
+
+      <div className="demoRow">
+        <Panel title="My Table" float={true} primary>
+          <Table className="margin-top-md"
+            columns={[
+              {header: 'First Name', value: 'name' },
+              {header: 'Last Name', value: 'lastname' },
+              {header: 'Username', value: 'username' },
+              {header: 'Email', value: 'email' },
+              {header: 'Country', value: 'country' },
+              {header: 'City', value: 'city' },
+            ]} 
+            data={[
+              {name: 'Mark', lastname: 'Otto', username: '@mdo', email: 'markotto@gmail.com', country: 'USA', city: 'San Francisco'},
+              {name: 'Mark', lastname: 'Otto', username: '@mdo', email: 'markotto@gmail.com', country: 'USA', city: 'San Francisco'},
+              {name: 'Mark', lastname: 'Otto', username: '@mdo', email: 'markotto@gmail.com', country: 'USA', city: 'San Francisco'},
+              {name: 'Mark', lastname: 'Otto', username: '@mdo', email: 'markotto@gmail.com', country: 'USA', city: 'San Francisco'},
+          ]}
+            />
+        </Panel>
+      </div>
+
+       <div className="demoRow margin-top-xl">
+        <Panel title="My Table" float={true} primary>
+          <Table className="margin-top-md"
+            data={[
+              {name: 'Mark', lastname: 'Otto', username: '@mdo', email: 'markotto@gmail.com', country: 'USA', city: 'San Francisco'},
+              {name: 'Mark', lastname: 'Otto', username: '@mdo', email: 'markotto@gmail.com', country: 'USA', city: 'San Francisco'},
+              {name: 'Mark', lastname: 'Otto', username: '@mdo', email: 'markotto@gmail.com', country: 'USA', city: 'San Francisco'},
+              {name: 'Mark', lastname: 'Otto', username: '@mdo', email: 'markotto@gmail.com', country: 'USA', city: 'San Francisco'},
+          ]}>
+            <Column header="First Name" value="name" />
+            <Column header="Last Name" value="lastname" />
+            <Column header="Username" value="username" />
+            <Column header="Email" value="email" />
+            <Column header="Country" value="country" />
+            <Column header="City" value="city" />
+          </Table>
+        </Panel>
+      </div>
 
       <Panels />
       <div>
@@ -319,10 +366,12 @@ class Demo extends Component {
         position="top"
         showOverlay={true}
         isOpen={this.state.fluidModalOpen} 
-        onClose={() => this.setState({fluidModalOpen: false})}
+        dismissable
+        onClose={() => this.onCloseFluid() }
         float={this.state.float}
         neutral={this.state.neutral}
-        primary={this.state.primary} secondary={this.state.secondary} danger={this.state.danger}>
+        primary={this.state.primary} secondary={this.state.secondary} danger={this.state.danger}
+        footer={<div><Button>Ok</Button><Button>Nope</Button></div>} >
         Modal de teste
       </Modal>
       <LoadinModal isOpen={this.state.loadingModal} primary={this.state.primary} secondary={this.state.secondary} danger={this.state.danger}>

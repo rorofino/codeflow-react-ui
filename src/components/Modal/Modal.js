@@ -45,24 +45,21 @@ const Modal = props => {
 				])
 			}
 			overlayClassName={cc(["codeflow-overlay", {"codeflow-overlay--hide": !props.showOverlay}])}
-			shouldCloseOnEsc={props.shouldCloseOnEsc}
-			shouldCloseOnOverlayClick={false}
+			shouldCloseOnEsc={props.dismissable}
+			shouldCloseOnOverlayClick={props.dismissable}
 			ariaHideApp={false}
+			onRequestClose={props.onClose}
 		>
-			{props.showTitle ? 
+			
 				<Panel className="codeflow-modal__panel" title={() => modalTitle(props)}
 					primary={props.primary} secondary={props.secondary} danger={props.danger} 
-					float={props.float} footer={props.footer}
+					float={props.float} footer={props.footer} showTitle={props.showTitle}
 				>
 					<div className={cc(["codeflow-modal__body", props.bodyClassName])}>
 						{props.children}
 					</div>
 				</Panel>
-			: 
-				<div className={cc(["codeflow-modal__body", props.bodyClassName])}>
-					{props.children}
-				</div>
-			}
+
 		</ReactModal>
 	);
 };
@@ -90,6 +87,7 @@ Modal.propTypes = {
 	className: PropTypes.string,
 	bodyClassName: PropTypes.string,
 	shouldCloseOnEsc: PropTypes.bool,
+	dismissable: PropTypes.bool
 };
 
 Modal.defaultProps = {
@@ -102,6 +100,7 @@ Modal.defaultProps = {
 	primary: false,
 	secondary: false,
 	danger: false,
+	dismissable: false,
 };
 
 export default Modal;

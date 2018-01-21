@@ -6,28 +6,32 @@ import Page from '../Page/Page';
 const Panel = props => {
 
     return (
-        <Page className={cc([props.className, "codeflow-panel", { "codeflow-panel--float": props.float }])}>
-            <div className={
-                cc([
-                    "codeflow-panel__title",
-                    {
-                        "codeflow-panel__title": {
-                            "--float": props.float,
-                            "--primary": props.primary,
-                            "--secondary": props.secondary,
-                            "--danger": props.danger
+        <Page className={cc([props.className, "codeflow-panel", { "codeflow-panel--float": props.float && props.showTitle }])}>
+            {props.showTitle ? 
+                <div className={
+                    cc([
+                        "codeflow-panel__title",
+                        {
+                            "codeflow-panel__title": {
+                                "--float": props.float && props.showTitle,
+                                "--primary": props.primary,
+                                "--secondary": props.secondary,
+                                "--danger": props.danger
+                            }
                         }
-                    }
-                ])
-            }>
-                {typeof props.title === "function" ? props.title() : props.title}
-            </div>
-            <div className={cc(["codeflow-panel__body"])}>
+                    ])
+                }>
+                    {typeof props.title === "function" ? props.title() : props.title}
+                </div>
+            : 
+                null 
+            }
+            <div className={cc(["codeflow-panel__body",  {"codeflow-modal__body--padding": props.showTitle}])}>
                 {props.children}
             </div>
             {props.footer ? 
                 <div className={cc(["codeflow-panel__footer"])}>
-                    {props.footer()}
+                    {typeof props.footer === "function" ? props.footer() : props.footer}
                 </div>
             : null}
         </Page>
@@ -36,11 +40,12 @@ const Panel = props => {
 
 Panel.propTypes = {
     title: PropTypes.oneOfType([PropTypes.func, PropTypes.string]).isRequired,
-    footer: PropTypes.func,
+    footer: PropTypes.oneOfType([PropTypes.func, PropTypes.node]),
     float: PropTypes.bool,
     primary: PropTypes.bool,
     secondary: PropTypes.bool,
     danger: PropTypes.bool,
+    showTitle: PropTypes.bool,
     className: PropTypes.string,
 };
 
@@ -50,6 +55,7 @@ Panel.defaultProps = {
     primary: false,
     secondary: false,
     danger: false,
+    showTitle: true
 };
 
 export default Panel;

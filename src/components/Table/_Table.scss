@@ -1,0 +1,40 @@
+.codeflow-table {
+
+    display: flex;
+    flex-direction: column;
+
+    
+    &-head {
+        display: flex;
+        flex: 1;
+        flex-direction: row;
+        border-bottom: 2px solid #e9ecef;
+        padding: 8px 12px 16px 0;
+        color: $color-text-strong;
+    }
+    
+    &-body {
+        flex: 1;
+        color: $color-text;
+    }
+
+    &-row {
+        display: flex;
+        flex-direction: row;
+        flex: 1;
+        justify-content: space-between;
+        padding: 16px 16px 16px 0;
+
+        border-bottom: 1px solid #e9ecef;
+        
+        &:hover {
+            background-color: $color-hover;
+            transition: .5s;
+            cursor: pointer;
+        }
+    }
+
+    &-cell {
+        flex: 1;            
+    }
+}

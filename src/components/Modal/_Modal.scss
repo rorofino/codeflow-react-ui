@@ -58,12 +58,15 @@ $default-top: 10%;
     }
 
     &__body {
-        padding: $padding-md;
-        padding-top: 0;
         color: $color-text;
         overflow: auto;
         height: 100%;
         width: 100%;
+
+        &--padding {
+            padding: $padding-md;
+            padding-top: 0;
+        }
     }
 
     &--default {
