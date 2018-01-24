@@ -26,7 +26,7 @@ const Panel = props => {
             : 
                 null 
             }
-            <div className={cc(["codeflow-panel__body",  {"codeflow-modal__body--padding": props.showTitle}])}>
+            <div className={cc(["codeflow-panel__body",  {"codeflow-panel__body--padding": props.showTitle}])}>
                 {props.children}
             </div>
             {props.footer ? 

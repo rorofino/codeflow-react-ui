@@ -17,13 +17,13 @@ class ListMasterDetail extends React.Component {
         };
     }
 
-    handleAddClick(column, columnIndex, selectedItems) {
+    handleAddClick(event, column, columnIndex, selectedItems) {
         if (this.props.onAddClick) {
             this.props.onAddClick(column, columnIndex, selectedItems);
         }
     }
 
-    handlerRemoveClick(column, columnIndex, selectedItems) {
+    handlerRemoveClick(event, column, columnIndex, selectedItems) {
         if (this.props.onRemoveClick) {
             this.props.onRemoveClick(column, columnIndex, selectedItems);
         }
@@ -75,7 +75,7 @@ class ListMasterDetail extends React.Component {
         }
 
         return (
-            <div className="codeflow-list-master-detail">
+            <div className={cc(["codeflow-list-master-detail", this.props.className])}>
                 <div className="codeflow-list-master-detail__title">
                     <Breadcrumb>
                         {this.buildBreadcrumb()}
@@ -95,7 +95,7 @@ class ListMasterDetail extends React.Component {
                                     {column.manageable ? 
                                         <Button disabled={!this.state.selectedItems[columnIndex]} flat hover={false} 
                                             className="codeflow-list-master-detail__column-title-trash"
-                                            onClick={() => this.handlerRemoveClick(column, columnIndex, this.state.selectedItems)}
+                                            onClick={(event) => this.handlerRemoveClick(event, column, columnIndex, this.state.selectedItems)}
                                             >
                                             <i className="fa fa-trash"></i>
                                         </Button>
@@ -105,7 +105,7 @@ class ListMasterDetail extends React.Component {
                                 {column.manageable ?
                                     <Button primary flat 
                                         className="codeflow-list-master-detail__column-add" 
-                                        onClick={() => this.handleAddClick(column, columnIndex, this.state.selectedItems)}
+                                        onClick={(event) => this.handleAddClick(event, column, columnIndex, this.state.selectedItems)}
                                         disabled={columnIndex > 0 && (selectedItems[columnIndex-1] === null || selectedItems[columnIndex-1] === undefined)}
                                         >
                                         <div className="codeflow-list-master-detail__icon-box">

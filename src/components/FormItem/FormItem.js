@@ -11,9 +11,13 @@ const FormItem = props => {
 
 	return (
 		<div className={cc(["codeflow-form-item", props.className])}>
-			<label className={cc(["codeflow-form-item__label", { "codeflow-form-item__label--required": props.required }])}>
-				{props.label || props.input.name}{" "}
-			</label>
+			{props.showLabel ?
+				<label className={cc(["codeflow-form-item__label", { "codeflow-form-item__label--required": props.required }])}>
+					{props.label || props.input.name}{" "}
+				</label>
+			: 
+				null 
+			}
 			<div className={cc(["codeflow-form-item__holder", {"codeflow-form-item__holder--inline": props.inline}])}>
 				{props.input
 					? React.cloneElement(props.children, { ...props.input })
@@ -31,6 +35,7 @@ const FormItem = props => {
 
 FormItem.propTypes = {
 	children: PropTypes.element.isRequired,
+	showLabel: PropTypes.bool,
 	name: PropTypes.string.isRequired,
 	className: PropTypes.string,
 	label: PropTypes.string,
@@ -42,6 +47,7 @@ FormItem.propTypes = {
 
 FormItem.defaultProps = {
 	children: undefined,
+	showLabel: true,
 	className: "",
 	meta: undefined,
 	label: "",

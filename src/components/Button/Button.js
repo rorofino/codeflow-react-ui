@@ -83,7 +83,7 @@ Button.defaultProps = {
 	bold: false,
 	children: undefined,
 	onClick: undefined,
-	type: undefined,
+	type: "button",
 	className: "",
 	style: {}
 };

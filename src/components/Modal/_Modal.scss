@@ -62,11 +62,6 @@ $default-top: 10%;
         overflow: auto;
         height: 100%;
         width: 100%;
-
-        &--padding {
-            padding: $padding-md;
-            padding-top: 0;
-        }
     }
 
     &--default {

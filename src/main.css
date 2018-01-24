@@ -202,7 +202,7 @@ body {
   display: flex;
   flex: 1;
   flex-direction: row;
-  min-width: 40rem; }
+  min-width: 30rem; }
   .codeflow-alert__title {
     color: #000;
     font-size: 2.4rem;
@@ -603,7 +603,8 @@ body {
     font-size: 2.4rem; }
   .codeflow-list-master-detail__columns {
     display: flex;
-    flex-direction: row; }
+    flex-direction: row;
+    flex: 1; }
   .codeflow-list-master-detail__column {
     display: flex;
     flex-direction: column;
@@ -708,9 +709,6 @@ body {
     overflow: auto;
     height: 100%;
     width: 100%; }
-    .codeflow-modal__body--padding {
-      padding: 1.5rem;
-      padding-top: 0; }
   .codeflow-modal--default {
     left: 50%;
     top: 200px;
