@@ -15,7 +15,7 @@ const ListItem = props => (
                 }
             },
             props.className])} 
-            onClick={() => props.onClick ? props.onClick(props.value) : null}
+            onMouseDown={() => props.onClick ? props.onClick(props.value) : null}
         >
             <div className="codeflow-list-item__body">
                 {props.children ? props.children : props.label}

@@ -10,8 +10,11 @@ const List = props => (
                 return (
                     <li key={`${item.value || item}-${index}`}>
                         <ListItem
-                            primary={props.primary} secondary={props.secondary} danger={props.danger}
-                            selected={props.selectedItem && (item.value === props.selectedItem || item === props.selectedItem)} onClick={() => props.onClick ? props.onClick(item) : null}>
+                            primary={props.primary}
+                            secondary={props.secondary}
+                            danger={props.danger}
+                            selected={props.selectedItem && (item.value === props.selectedItem || item === props.selectedItem)}
+                            onClick={() => props.onClick ? props.onClick(item) : null}>
                             {item.hasOwnProperty('label') ? item.label : item}
                         </ListItem>
                     </li>
