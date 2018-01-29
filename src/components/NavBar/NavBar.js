@@ -35,13 +35,15 @@ const NavBar = props => {
         <Header className="codeflow-navbar">
             {renderedLeft}
             {renderedTitle}
-            <nav className="codeflow-navbar__nav">
-                <ul className="codeflow-navbar__ul">
-                    {React.Children.map(props.children, child => (
-                        <li>{child}</li>
-                    ))}
-                </ul>
-            </nav>
+            {React.Children.count(props.children) > 0 
+            ?   <nav className="codeflow-navbar__nav">
+                    <ul className="codeflow-navbar__ul">
+                        {React.Children.map(props.children, child => (
+                            <li>{child}</li>
+                        ))}
+                    </ul>
+                </nav>
+            :   null }
             {renderedRight}
         </Header>
     );

@@ -87,7 +87,12 @@ Modal.propTypes = {
 	className: PropTypes.string,
 	bodyClassName: PropTypes.string,
 	shouldCloseOnEsc: PropTypes.bool,
-	dismissable: PropTypes.bool
+	dismissable: PropTypes.bool,
+
+	dismissableValidation: (props) => {
+		if (props.dismissable && !props.onClose)
+			return new Error('You must provide a handler for onClose if dismissable is true');
+	},
 };
 
 Modal.defaultProps = {

@@ -140,9 +140,13 @@ class Demo extends Component {
         <Button flat hover={false} ><i className="fa fa-comments-o margin-right-sm"> </i>Support</Button>
       </NavBar>
       <h1>codeflow-react-ui Demo</h1>
-
       <div className="demoRow">
-        <Panel title="My Table" float={true} primary>
+        <Panel title="My Table" float={true} primary
+          footer={(<div className="hc">
+            <Button>Ok</Button>
+            <Button danger>Cancel</Button>
+          </div>)}
+        >
           <Table className="margin-top-md"
             columns={[
               {header: 'First Name', value: 'name' },
@@ -159,10 +163,12 @@ class Demo extends Component {
               {name: 'Mark', lastname: 'Otto', username: '@mdo', email: 'markotto@gmail.com', country: 'USA', city: 'San Francisco'},
           ]}
             />
+            
         </Panel>
       </div>
+      
 
-       <div className="demoRow margin-top-xl">
+        <div className="demoRow margin-top-xl">
         <Panel title="My Table" float={true} primary>
           <Table className="margin-top-md"
             data={[
@@ -192,7 +198,7 @@ class Demo extends Component {
         </div>
       </div>
       <div className="margin-wrapper">
-        <Popover isOpen={this.state.overlayOpen} content={<h1>Tesaasdasdasdasdasdassdaste</h1>} arrow>
+        <Popover isOpen={this.state.overlayOpen} content={<h1>Tesaasdasdasdasdasdassdaste</h1>} arrow onClickOutside={() => this.setState({overlayOpen: false})}>
           <Button primary onClick={() => this.setState({overlayOpen: !this.state.overlayOpen})}>PopOver</Button>
         </Popover>
       </div>
@@ -219,7 +225,7 @@ class Demo extends Component {
           ]} placeholder="Select an item" material primary />
       </div>
       <div className="margin-wrapper">
-        <Popover isOpen={this.state.overlayOpen} content={<h1>adsdasdasdasdasdasdasd</h1>} position={POSITION.LEFT}>
+        <Popover isOpen={this.state.overlayOpen} content={<h1>adsdasdasdasdasdasdasd</h1>} position={POSITION.LEFT} onClickOutside={() => this.setState({overlayOpen: false})}>
           <Button primary onClick={() => this.setState({overlayOpen: !this.state.overlayOpen})}>PopOver</Button>
         </Popover>
       </div>

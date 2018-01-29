@@ -5,6 +5,7 @@ const TOP = "top";
 const RIGHT = "right";
 const BOTTOM = "bottom";
 const LEFT = "left";
+const BOTTOM_RIGHT = "bottom-right"
 
 export const POSITION = {
     DEFAULT,
@@ -12,5 +13,6 @@ export const POSITION = {
     TOP,
     RIGHT,
     BOTTOM,
-    LEFT
+    LEFT,
+    BOTTOM_RIGHT,
 }

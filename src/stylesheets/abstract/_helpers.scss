@@ -8,6 +8,14 @@
     justify-content: center;
 }
 
+.dr {
+    flex-direction: row;
+}
+
+.dc {
+    flex-direction: column;
+}
+
 .color-weak {
     color: $color-text-weak;
 }

@@ -63,7 +63,12 @@ class Dropdown extends Component {
         const displayText = valueOnData ? (valueOnData.label ? valueOnData.label : valueOnData) : props.placeholder;
         return (
             <div className={cc(["codeflow-dropdown", {"codeflow-dropdown--material": props.material}, props.className])}>
-                <Popover isOpen={this.state.isOpen} content={this.renderDropDownList()} position={this.state.openPosition}>
+                <Popover
+                    isOpen={this.state.isOpen}
+                    content={this.renderDropDownList()}
+                    position={this.state.openPosition}
+                    onClickOutside={() => this.setState({isOpen: false})}
+                >
                     <Button flat={props.flat || props.material} hover={props.hover != undefined ? props.hover : !props.material}
                         primary={props.primary} secondary={props.secondary} danger={props.danger} 
                         neutral={props.neutral} outline={props.outline} rounded={props.rounded}

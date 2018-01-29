@@ -23,7 +23,13 @@ const List = props => (
                         <li>
                             {
                                 child ?
-                                    React.cloneElement(child, { primary: props.primary, secondary: props.secondary, danger: props.danger, selected: child.props.value ? child.props.value === props.selectedItem : false })
+                                    React.cloneElement(child, { 
+                                        primary: props.primary, 
+                                        secondary: props.secondary,
+                                        danger: props.danger,
+                                        selected: child.props.value ? child.props.value === props.selectedItem : false,
+                                        // onClick: props.onClick ? props.onClick(child.props) : null
+                                    })
                                     :
                                     null
                             }

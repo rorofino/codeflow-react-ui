@@ -1,0 +1,29 @@
+$color-primary: #2a9699;
+$color-secondary: #868e96;
+$color-danger: #dc3545;
+
+$color-primary-invert: #fff;
+$color-secondary-invert: #fff;
+$color-danger-invert: #fff;
+
+$color-primary-light: lighten($color-primary, 50%);
+$color-primary-medium: lighten($color-primary, 10%);
+$color-secondary-light: lighten($color-secondary, 40%);
+$color-danger-light: lighten($color-danger, 40%);
+
+$color-hover: rgba(0,0,0,0.08);
+
+$color-dsabled: rgba(0,0,0,.3);
+
+$color-text: #4f4f4f;
+$color-text-invert: rgba(255,255,255,0.87);
+$color-text-strong: #000;
+$color-text-weak: rgba(0,0,0,0.54);
+
+$color-background: #fff;
+$color-border: #bdbdbd; //d4d4d5
+$color-border-light: #eee;
+
+$color-shadow: rgba(0,0,0,.16);
+$color-shadow-weak: rgba(0,0,0,.12);
+$color-shadow-strong: rgba(0,0,0,.18);
