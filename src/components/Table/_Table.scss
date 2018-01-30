@@ -2,9 +2,9 @@
 
     display: flex;
     flex-direction: column;
-
+    flex: 1;
     
-    &-head {
+    &__head {
         display: flex;
         flex-direction: row;
         border-bottom: 2px solid #e9ecef;
@@ -12,12 +12,12 @@
         color: $color-text-strong;
     }
     
-    &-body {
+    &__body {
         flex: 1;
         color: $color-text;
     }
 
-    &-row {
+    &__row {
         display: flex;
         flex-direction: row;
         flex: 1;
@@ -33,7 +33,7 @@
         }
     }
 
-    &-cell {
+    &__cell {
         flex: 1;            
     }
 }

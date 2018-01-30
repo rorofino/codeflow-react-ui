@@ -717,7 +717,6 @@ body {
     width: 100%; }
   .codeflow-modal--default {
     left: 50%;
-    top: 200px;
     transform: translateX(-50%); }
   .codeflow-modal--center {
     top: 50%;
@@ -845,16 +844,6 @@ body {
     padding: 1.5rem;
     border-top: 1px solid #e9ecef; }
 
-.codeflow-popover__overlay {
-  position: fixed;
-  top: 0;
-  left: 0;
-  right: 0;
-  bottom: 0;
-  z-index: 1;
-  background: none;
-  background-color: transparent; }
-
 .codeflow-popover {
   position: relative; }
   .codeflow-popover__body {
@@ -954,28 +943,29 @@ body {
 
 .codeflow-table {
   display: flex;
-  flex-direction: column; }
-  .codeflow-table-head {
+  flex-direction: column;
+  flex: 1; }
+  .codeflow-table__head {
     display: flex;
     flex-direction: row;
     border-bottom: 2px solid #e9ecef;
     padding: 8px 12px 16px 0;
     color: #000; }
-  .codeflow-table-body {
+  .codeflow-table__body {
     flex: 1;
     color: #4f4f4f; }
-  .codeflow-table-row {
+  .codeflow-table__row {
     display: flex;
     flex-direction: row;
     flex: 1;
     justify-content: space-between;
     padding: 16px 16px 16px 0;
     border-bottom: 1px solid #e9ecef; }
-    .codeflow-table-row:hover {
+    .codeflow-table__row:hover {
       background-color: rgba(0, 0, 0, 0.08);
       transition: .5s;
       cursor: pointer; }
-  .codeflow-table-cell {
+  .codeflow-table__cell {
     flex: 1; }
 
 .codeflow-material-input {

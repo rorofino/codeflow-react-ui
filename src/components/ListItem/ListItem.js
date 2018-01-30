@@ -14,8 +14,10 @@ const ListItem = props => (
                     "--disabled": props.disabled,
                 }
             },
-            props.className])} 
-            onMouseDown={() => props.onClick ? props.onClick(props.value) : null}
+            props.className])}
+            onMouseDown={props.onMouseDown}
+            onClick={props.onClick}
+            onFocus={() => event.stopPropagation()}
         >
             <div className="codeflow-list-item__body">
                 {props.children ? props.children : props.label}

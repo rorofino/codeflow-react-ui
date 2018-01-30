@@ -32,6 +32,7 @@ class Dropdown extends Component {
     }
 
     handleSelect(item) {
+        //alert('ok');
         if (this.props.onChange) {
             this.props.onChange(item);
         }
@@ -46,7 +47,7 @@ class Dropdown extends Component {
                 primary={props.primary}
                 secondary={props.secondary}
                 danger={props.danger}
-                onClick={this.handleSelect}
+                onMouseDown={this.handleSelect}
                 selectedItem={props.value}
             >
                 {props.placeholder && props.displayPlaceHolderOnList ? <ListItem label={props.placeholder} disabled /> : null}

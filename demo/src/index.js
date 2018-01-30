@@ -130,7 +130,7 @@ class Demo extends Component {
   }
 
   render() {
-    return <div>
+    return <div style={{width: '100%'}}>
       <NavBar title="CodeFlow" 
         left={<Button flat hover={false}><i className="fa fa-bars"></i></Button>}
         right={<Dropdown displayPlaceHolderOnList={false} flat hover={false} placeholder="Profile" icon={<i className="fa fa-user"></i>}></Dropdown>}
@@ -358,7 +358,7 @@ class Demo extends Component {
         onDismiss={() => this.setState({alertOpen: false})}
         onConfirm={() => this.setState({alertOpen: false})}
         title="My Alert Title" confirmButtonLabel="Agree" dismissButtonLabel="Disagree">
-        My Alert Body
+        My Alert Body Danger
       </Alert>
       <Modal icon="fa fa-pencil" 
         isOpen={this.state.modalOpen} 

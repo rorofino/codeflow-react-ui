@@ -6,10 +6,12 @@ import Button from '../Button/Button';
 
 const Alert = (props) => (
 
-    <Modal {...props} className={cc(["codeflow-alert", props.className])}
+    <Modal {...props}
+        className={cc(["codeflow-alert", props.className])}
         float={false}
         onClose={props.onDismiss}
-        hideClose={true}>
+        hideClose={true}
+        >
 
       <div className="codeflow-alert__body">
       {props.children}
