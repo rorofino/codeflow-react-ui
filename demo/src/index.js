@@ -29,6 +29,8 @@ import NavBar from '../../src/components/NavBar/NavBar';
 import Table, {Column} from '../../src/components/Table/Table';
 import Panel from '../../src/components/Panel/Panel';
 
+import PageListMasterDetail from './PageListMasterDetail';
+
 const footerModal = props => {
   return (
     [
@@ -140,7 +142,10 @@ class Demo extends Component {
         <Button flat hover={false} ><i className="fa fa-comments-o margin-right-sm"> </i>Support</Button>
       </NavBar>
       <h1>codeflow-react-ui Demo</h1>
-      <div className="demoRow">
+
+      <PageListMasterDetail />
+
+      <div className="demoRow" style={{marginTop: '5rem'}}>
         <Panel title="My Table" float={true} primary
           footer={(<div className="hc">
             <Button>Ok</Button>
@@ -316,10 +321,6 @@ class Demo extends Component {
             data={[]}
             />
         </Page>
-      </div>
-      <div className="demoRow">
-          <ListMasterDetail title="Horários" value={this.state.data}  titleIcon="fa fa-home"
-            columns={[{labelProperty: 'sala', valueProperty: 'dias', title: 'Salas', manageable: true, titleIcon: 'fa fa-edit'}, {labelProperty: 'dia', valueProperty: 'horarios', title: 'Dias da Semana', manageable: true}, {labelProperty: 'hora', valueProperty: 'hora', title: 'Horários', manageable: true, final: true}]}  />
       </div>
       <div className="demoRow">
         <div className="margin-wrapper">

@@ -6,148 +6,143 @@ import ListItem from '../ListItem/ListItem';
 import Modal from "../Modal/Modal";
 import Breadcrumb from "../Breadcrumb/Breadcrumb";
 
-const getDescendantProp = (obj, field) => field.split('.').reduce((a, b) => a[b], obj);
+import { getDescendantProp } from '../../utils/objUtils';
 
-class ListMasterDetail extends React.Component {
-
-    constructor(props) {
-        super(props);
-        this.state = {
-            selectedItems: []
-        };
+const handleAddClick = (item, column) => {
+    if (column.onAddClick) {
+        column.onAddClick(item, column);
     }
+}
 
-    handleAddClick(event, column, columnIndex, selectedItems) {
-        if (this.props.onAddClick) {
-            this.props.onAddClick(column, columnIndex, selectedItems);
+const handlerRemoveClick = (item, column) => {
+    if (column.onRemoveClick) {
+        column.onRemoveClick(item, column);
+    }
+}
+
+const handleItemClick = (item, column, columns) => {
+    if (item !== column.value) {
+        if (column.onChange) {
+            column.onChange(item, column);
         }
-    }
-
-    handlerRemoveClick(event, column, columnIndex, selectedItems) {
-        if (this.props.onRemoveClick) {
-            this.props.onRemoveClick(column, columnIndex, selectedItems);
-        }
-    }
-
-    selectItem(item, column, columnIndex, itemIndex) {
-        const selectedItems = this.state.selectedItems.slice(0, columnIndex);
-        selectedItems[columnIndex] = {value: item, index: itemIndex};
-        this.setState({selectedItems});
-    }
-
-    handleBreacrumbClick(column, columnIndex) {
-        const selectedItems = this.state.selectedItems.slice(0, columnIndex);
-        this.setState({selectedItems});
-    }
-
-    buildBreadcrumb() {
-        const {columns} = this.props || [];
-        const items = [
-            <Button key={0} flat secondary hover={false} onClick={() => this.handleBreacrumbClick(columns[0], 0)} className="codeflow-list-master-detail__breadcrumb-button">
-                <i className={cc([this.props.titleIcon, "codeflow-list-master-detail__breadcrumb-icon", "padding-right-sm"])}></i>
-                {columns[0].title}
-            </Button>
-        ];
-        this.state.selectedItems.forEach((item, index) => {
-            if (index > 0) {
-                const column = columns[index];
-                items.push(
-                    <Button key={index} flat secondary hover={false}  onClick={() => this.handleBreacrumbClick(column, index)} className="codeflow-list-master-detail__breadcrumb-button">
-                        <i className={cc([column.titleIcon, "codeflow-list-master-detail__breadcrumb-icon", "padding-right-sm"])}></i>
-                        {column.title}
-                    </Button>
-                );
+        for(let i=columns.indexOf(column)+1; i<columns.length; i++) {
+            if (i < columns.length) {
+                const col = columns[i];
+                if (col.onChange) {
+                    col.onChange(null, col);
+                }
             }
-        });
-        return items;
-    }
-
-    render() {
-        const {columns} = this.props || [];
-        const {selectedItems} = this.state;
-        const dataSources = [this.props.value];
-        for(let i=0; i<selectedItems.length; i++) {
-            const selectedItem = selectedItems[i];
-            const valueProperty = columns[i].valueProperty;
-            const item = dataSources[i][selectedItem.index];
-            const array = item[valueProperty];
-            dataSources.push(array);
         }
+    }
+}
 
-        return (
-            <div className={cc(["codeflow-list-master-detail", this.props.className])}>
-                <div className="codeflow-list-master-detail__title">
-                    <Breadcrumb>
-                        {this.buildBreadcrumb()}
-                    </Breadcrumb>
-                </div>
-                <div className="codeflow-list-master-detail__columns">
-                    {
-                        columns.map((column, columnIndex) => (
-                            <div key={columnIndex} className="codeflow-list-master-detail__column">
-                                <div className="codeflow-list-master-detail__column-title">
-                                    <div className="codeflow-list-master-detail__column-text">
-                                        <div className="codeflow-list-master-detail__icon-box">
-                                            <i className={cc([column.titleIcon, "codeflow-list-master-detail__column-title-icon"])}></i>
-                                        </div>
-                                        {column.title}
+const handleBreacrumbClick = (column, columnIndex) => {
+    
+}
+
+const buildBreadcrumb = (props) => {
+    const { columns } = props || [];
+    const items = [
+        <Button key={0} flat secondary hover={false} onClick={() => handleBreacrumbClick(null, columns[0])} className="codeflow-list-master-detail__breadcrumb-button">
+            <i className={cc([props.titleIcon, "codeflow-list-master-detail__breadcrumb-icon", "padding-right-sm"])}></i>
+            {columns[0].title}
+        </Button>
+    ];
+    columns.forEach((column, index) => {
+        if (index > 0 && column.value) {
+            items.push(
+                <Button key={index} flat secondary hover={false} onClick={() => handleItemClick(null, column, columns)} className="codeflow-list-master-detail__breadcrumb-button">
+                    <i className={cc([column.titleIcon, "codeflow-list-master-detail__breadcrumb-icon", "padding-right-sm"])}></i>
+                    {column.title}
+                </Button>
+            );
+        }
+    });
+    return items;
+}
+
+const ListMasterDetail = props => {
+
+    const { columns } = props;
+
+    return (
+        <div className={cc(["codeflow-list-master-detail", props.className])}>
+            <div className="codeflow-list-master-detail__title">
+                <Breadcrumb>
+                    {buildBreadcrumb(props)}
+                </Breadcrumb>
+            </div>
+            <div className="codeflow-list-master-detail__columns">
+                {
+                    columns.map((column, columnIndex) => (
+                        <div key={columnIndex} className="codeflow-list-master-detail__column">
+                            <div className="codeflow-list-master-detail__column-title">
+                                <div className="codeflow-list-master-detail__column-text">
+                                    <div className="codeflow-list-master-detail__icon-box">
+                                        <i className={cc([column.titleIcon, "codeflow-list-master-detail__column-title-icon"])}></i>
                                     </div>
-                                    {column.manageable ? 
-                                        <Button disabled={!this.state.selectedItems[columnIndex]} flat hover={false} 
-                                            className="codeflow-list-master-detail__column-title-trash"
-                                            onClick={(event) => this.handlerRemoveClick(event, column, columnIndex, this.state.selectedItems)}
-                                            >
-                                            <i className="fa fa-trash"></i>
-                                        </Button>
-                                    : null }
+                                    {column.title}
                                 </div>
-                                <div className="codeflow-list-master-detail__column-list">
                                 {column.manageable ?
-                                    <Button primary flat 
-                                        className="codeflow-list-master-detail__column-add" 
-                                        onClick={(event) => this.handleAddClick(event, column, columnIndex, this.state.selectedItems)}
-                                        disabled={columnIndex > 0 && (selectedItems[columnIndex-1] === null || selectedItems[columnIndex-1] === undefined)}
-                                        >
-                                        <div className="codeflow-list-master-detail__icon-box">
-                                                <i className="fa fa-plus"></i>
-                                        </div>
-                                        <p>Adicionar</p>
+                                    <Button disabled={!column.value} flat hover={false}
+                                        className="codeflow-list-master-detail__column-title-trash"
+                                        onClick={(event) => handlerRemoveClick(column.value, column)}
+                                    >
+                                        <i className="fa fa-trash"></i>
                                     </Button>
-                                : null }
-                                    {dataSources[columnIndex] ? dataSources[columnIndex].map((item, indexItem) => {
-                                        const itemSelected = this.state.selectedItems[columnIndex] && this.state.selectedItems[columnIndex].index === indexItem;
+                                    : null}
+                            </div>
+                            <div className="codeflow-list-master-detail__column-list">
+                                {
+                                    column.manageable ?
+                                        <Button primary flat
+                                            className="codeflow-list-master-detail__column-add"
+                                            onClick={(event) => handleAddClick(column.value, column)}
+                                            disabled={columnIndex > 0 && !columns[columnIndex-1].value}
+                                        >
+                                            <div className="codeflow-list-master-detail__icon-box">
+                                                <i className="fa fa-plus"></i>
+                                            </div>
+                                            <p>Adicionar</p>
+                                        </Button>
+                                        : null
+                                }
+                                {
+                                    (column.values || []).map((item, indexItem) => {
+                                        const itemSelected = item === column.value;
                                         return (<ListItem icon={itemSelected ? "fa fa-chevron-right" : ""}
                                             className="codeflow-list-master-detail__column-item"
                                             selected={itemSelected}
-                                            onClick={() => this.selectItem(item, column, columnIndex, indexItem)}
+                                            onClick={() => handleItemClick(item, column, columns)}
                                             key={`col${columnIndex}item${indexItem}`}
                                         >
-                                            {getDescendantProp(item, column.labelProperty)}
+                                            {column.text ? column.text(item) : item}
                                         </ListItem>);
-                                    }) : null}
-                                </div>
+                                    })
+                                }
                             </div>
-                        )) 
-                    }
-                </div>
-            </div>                
-        );
-    }
-
+                        </div>
+                    ))
+                }
+            </div>
+        </div>
+    );
 }
+
 
 ListMasterDetail.propTypes = {
     titleIcon: PropTypes.string,
-    onAddClick: PropTypes.func,
-    onRemoveClick: PropTypes.func,
     columns: PropTypes.arrayOf(
         PropTypes.shape({
-            title:  PropTypes.string.isRequired,
+            title: PropTypes.string.isRequired,
             titleIcon: PropTypes.string,
-            labelProperty: PropTypes.string.isRequired,
-            valueProperty: PropTypes.string.isRequired,
             manageable: PropTypes.bool,
-            final: PropTypes.bool
+            values: PropTypes.array,
+            value: PropTypes.oneOfType([PropTypes.object, PropTypes.node]),
+            text: PropTypes.func,
+            onChange: PropTypes.func,
+            onAddClick: PropTypes.func,
+            onRemoveClick: PropTypes.func,
         })
     ).isRequired,
 };

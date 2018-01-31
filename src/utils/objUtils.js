@@ -1,0 +1,1 @@
+export const getDescendantProp = (obj, field) => field.split('.').reduce((a, b) => a[b], obj);
